@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>公司介绍_{$sys.webtitle}</title>
+    <meta name="Keywords" content="{$sys.keywords}">
+    <meta name="Description" content="{$sys.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+<!-- isite.baidu.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body onload="setSize();">
+	
+
+<include file="Index/header"/>
+    
+<!-- banner开始 -->
+<div class="f-banner">
+    <div class="container mob_f_po" style="border-top: 1px solid #eee;">
+
+        <h3>
+            公司介绍
+        </h3>
+    </div>
+</div>
+<!-- banner结束 -->
+
+
+
+
+
+
+<div class="f-tab" style="min-height: 558px;">
+    <div class="container f-n-flot">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="company">
+                <img src="__PUBLIC__/home/images/bn1.png" alt="" width="30%">
+                <div class="platform-in-f">
+                    <div class="platform-in-f-l">
+                        {$sys.aboutus}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 底部 -->
+<include file="Index/footer"/>
+<!-- 底部 -->
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_service").addClass("active");
+        });
+    </script>   
+
+</body>
+</html>

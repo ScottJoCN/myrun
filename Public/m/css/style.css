@@ -1,0 +1,83 @@
+﻿
+
+/** page structure **/
+#content {
+  max-width: 1000px;
+  background: #fff;
+  padding: 25px 65px;
+  margin: 0 auto;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+
+
+#navbar {
+  /*max-width: 1000px;*/
+  margin: 0 auto;
+}
+
+.menubtn { position: relative;  z-index: 99999999;color: #274a61; text-decoration: none; font-size: 0em;  line-height: 0em;
+ width:35px;  height:35px;   background: url('../images/11261.png') no-repeat;  background-size:cover;
+   margin-top:6px;
+}
+.yindiaol{
+    position:relative;
+}
+
+
+/** toggle menu **/
+body.openmenu {
+    width: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+
+#pgcontainer {margin: 0; float:right;}
+
+.overlay {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.5);
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.openmenu .overlay {
+  top: 0;
+}
+#hamburgermenu {
+  height: 100%;
+  width: 0;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  overflow: hidden;
+
+}
+#hamburgermenu ul {
+  margin-top: 10px;
+  z-index: 101;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#hamburgermenu ul li {
+  display: block;
+}
+#hamburgermenu ul li a {
+  display: block;
+  min-width: 130px;
+  padding: 12px 8px;
+  color: #333;
+  font-size:18px;
+  text-decoration: none;
+  text-align: left;
+}
+#hamburgermenu ul li.active a {
+  text-decoration: none;
+  color: #F6961F!important;
+}

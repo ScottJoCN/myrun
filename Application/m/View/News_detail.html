@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{$news.atitle}</title>
+	<meta name="Keywords" content="{$news.kw}">
+    <meta name="Description" content="{$news.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/news.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/service.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/m/css/idangerous.swiper.css">
+    <style>
+    	html{
+		    font-size: 100px; 
+		}
+		body{
+		    width:100%;
+		    max-width:640px;
+		}
+		a{
+			color: #000;
+		}
+    </style>
+<!-- isite.baidu.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body onload="setSize();">
+
+
+<include file="Index/header"/>
+<style>
+    .chanpinbg{
+        background: url(../images/product.jpg) no-repeat center top;
+    }
+    .chanpinpc{
+        background:url(../images/product.jpg) no-repeat center top;
+
+    }
+</style>
+<!-- banner开始 -->
+<div class="f-banner">
+    <div class="container mob_f_po">
+        <empty name="news.title_pic">
+                <div class="c_banner" style="color: #fff;background:url(__ROOT__{$sys.art_pic}) no-repeat center top;">
+            <else/>
+                <div class="c_banner" style="color: #fff;background:url(__ROOT__{$news.title_pic}) no-repeat center top;">
+        </empty>
+            {$news.atitle}
+        </div>
+        <empty name="news.title_pic">
+            <div class="c_banner_mob" style="line-height: 30px;font-size:0.16rem;color: #fff;font-weight:600;background:url(__ROOT__{$sys.art_pic}) no-repeat center top;">
+        <else/>
+            <div class="c_banner_mob" style="line-height: 30px;font-size:0.16rem;color: #fff;font-weight:600;background:url(__ROOT__{$news.title_pic}) no-repeat center top;">
+        </empty>
+            {$news.atitle}
+        </div>
+    </div>
+</div>
+<!-- banner结束 -->
+<div style="font-size:0.14rem;padding:5px 10px;width:100%;">
+	<span style="float:left;color:rgb(158,158,158);">{$news.time|date="Y-m-d H:i:s",###}</span><span style="float:left;color:rgb(158,158,158);margin-left:10px;">来源:{$news.txtorigin}</span>
+	<div style="float:right;">
+		<span style="float:left;background-image:url(__PUBLIC__/m/images/yds.png);background-size:cover;width:18px;height:16px;margin-top:2px;"></span>
+		<span style="float:left;font-size:0.14rem;color:rgb(58,154,255);margin-left:8px;">{$news.skimno}</span>
+	</div>
+	<div style="float:left;width:100%;border-style:solid;border-width: 0 0 1px 0;border-color:rgb(230,230,230);margin-top:5px;"></div>
+</div>
+
+
+<div id="container" style="width: 95%;margin: 0 auto;margin-top: 40px;">
+{$news.contents}
+</div>
+
+
+<!-- 底部 -->
+<include file="Index/footer"/>
+<!-- 底部 -->
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_customer").addClass("active");
+        });
+        $('#container img').css('width','88%');
+    </script>   
+	
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>度房管理后台注册页</title>
+
+    <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form class="form-signin" action="{:U('Login/reg')}" method="post">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">注 册</h1>
+            <h2 style="color: #6bc5a4;"><i>{$sys.webname}</i><span style="font-size: 20px;color: #000;"> - 后台管理</span></h2>
+        </div>
+        
+        <div class="login-wrap">
+            <p> 请填写登录信息</p>
+            <input type="text" autofocus="" placeholder="用户名" class="form-control" name="adname" id="adname">
+                <div class="alert alert-block alert-danger fade in" style="display: none" id="regname"> 
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <label id="admin-tips">该用户名已被占</label>
+                </div>
+            <input type="password" placeholder="密码" class="form-control" name="adpsw" id="psw1">
+            <input type="password" placeholder="确认密码" class="form-control" name="conpsw" id="psw2">
+            
+                <div class="alert alert-block alert-danger fade in" style="display: none" id="regpsw"> 
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <label id="psw-tips">两次输入不一致</label>
+                </div>
+<!--             <label class="checkbox">
+                <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
+            </label> -->
+                
+                <div class="alert alert-success fade in" style="display: none" id="successbtn"> 
+                    <button type="button" class="close close-sm" data-dismiss="alert">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <label id="admin-tips">验证通过</label>
+                </div>
+            
+            <p> 请填写个人信息</p>
+            <!-- <input type="text" autofocus="" placeholder="用户名" class="form-control"> -->
+            <input type="text" autofocus="" placeholder="昵  称" class="form-control" name="nickname">
+            <input type="text" autofocus="" placeholder="邮  箱" class="form-control" name="email" id="email">
+            <div class="alert alert-block alert-danger fade in" style="display: none" id="regEmail"> 
+                <button type="button" class="close close-sm" data-dismiss="alert">
+                    <i class="fa fa-times"></i>
+                </button>
+                <label id="email-tips">邮箱已被占</label>
+            </div>
+            <button type="button" class="btn btn-lg btn-login btn-block" id="submitbtn"  href="#"> 
+                <i class="fa fa-check"></i>
+            </button>
+
+            <div class="registration">
+                已注册.
+                <a href="{:U('Login/index')}" class="">
+                    登录
+                </a>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<!-- <script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+ -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+<script>
+$(function(){
+    // 邮箱正则
+    var regEm = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    // 密码正则
+    var regPsw = /^[0-9a-zA-Z_]{6,15}$/;
+    var con_email = 0;
+    var con_name = 0;
+    var con_psw1 = 0;
+    var con_psw2 = 0;
+    // 验证邮箱
+    // function fun_reg_email(){
+        $('#email').bind('input propertychange', function() {
+            var emailValue = $(this).val();
+            var matchEmail = emailValue.match(regEm);
+            if(emailValue == ''){
+                $('#regEmail').show();
+                $('#regEmail #email-tips').html('邮箱不能为空');
+                con_email = 0;
+                // console.log(con_email);
+            }else if(!matchEmail){
+                $('#regEmail').show();
+                $('#regEmail #email-tips').html('邮箱格式不正确');
+                con_email = 0;
+                // console.log(con_email);
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"{:U('Login/regemail')}",
+                    data:{email:emailValue},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            $('#regEmail').show();
+                            $('#regEmail #email-tips').html('邮箱被占用');
+                            con_email = 0;
+                            // console.log(con_email);
+                        }else{
+                            $('#regEmail').hide();
+                            con_email = 1;
+                            // console.log(con_email);
+                        }
+                    }
+                });
+            }
+        })
+    // }
+    // 验证邮箱
+    // 验证用户名
+    // function fun_reg_name(){
+        $('#adname').bind('input propertychange', function() {
+            var adminValue = $(this).val();
+            // console.log(adminValue);
+            if(adminValue == ''){
+                $('#regname').show();
+                $('#regname #admin-tips').html('用户名不能为空');
+                con_name = 0;
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"{:U('Login/regadmin')}",
+                    data:{admin:adminValue},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            $('#regname').show();
+                            $('#regname #admin-tips').html('用户名被占用');
+                            con_name = 0;
+                        }else{
+                            $('#regname').hide();
+                            con_name = 1;
+                        }
+                    }
+                });
+            }
+        })
+    // }
+    // 验证用户名
+    // 验证密码
+    // function fun_reg_pws(){
+        $('#psw1').bind('input propertychange', function() {
+            var psw = $(this).val();
+            var matchPsw = psw.match(regPsw);
+
+            if (!matchPsw) {
+                $('#regpsw').show();
+                $('#regpsw #psw-tips').html("6-15位大小写字母及'_'");
+                con_psw1 = 0;
+            }else{
+                $('#regpsw').hide();
+                con_psw1 = 1;
+                // $('#regpsw #psw-tips').html('密码过短');
+            }
+                
+        })
+        $('#psw2').bind('input propertychange', function() {
+            var psw1 = $('#psw1').val();
+            var psw2 = $(this).val();
+            if(psw2 != psw1){
+                $('#regpsw').show();
+                $('#regpsw #psw-tips').html('两次输入不一致');
+                con_psw2 = 0;
+                // $('#regname #admin-tips').html('用户名被占用');
+            }else {
+                $('#regpsw').hide();
+                con_psw2 = 1;
+            }
+        })
+    // }
+    $('#submitbtn').on('click',function(){
+        if(con_email && con_name && con_psw1 && con_psw2){
+            $('.form-signin').submit();
+            return true;
+        }else {
+            alert('填写有误！')
+            return false;
+        }
+    })
+})
+</script>
+</body>
+</html>

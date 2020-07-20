@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+	<meta name="description" content="">
+	<meta name="author" content="ThemeBucket">
+	<link rel="shortcut icon" href="#" type="image/png">
+
+	<title>新增行业图片 - {$sys.webname}后台管理</title>
+	<!--tags input-->
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/asource/js/jquery-tags-input/jquery.tagsinput.css" />
+	<!--file upload-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/asource/css/bootstrap-fileupload.min.css" />
+	<!--common-->
+	<link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+	<link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/asource/css/chosen.css">
+	<script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/ueditor.all.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="__ROOT__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <!-- header section end-->
+		<div class="page-heading">
+            <h3>
+                新增行业图片
+            </h3>
+            <ul class="breadcrumb">
+            	<li>
+                    <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/company',array('list'=>1,'cla'=>3))}">行业图片列表</a>
+                </li>
+                <li class="active"> 新增行业图片 </li>
+            </ul>
+            
+        </div>  
+
+        <!--body wrapper start-->
+<div class="wrapper">
+    <div class="row">
+
+        <div class="col-md-10">
+          <div class="panel">
+            <div class="panel-heading">
+              新增行业图片
+              <span class="tools pull-right">
+              <a class="fa fa-chevron-down" href="javascript:;"></a>
+              </span>
+            </div>
+
+            <div class="panel-body">
+<form class="form-horizontal" method="post" action="{:U('Home/addcompany')}" enctype="multipart/form-data">
+	
+	<input type="hidden" name="type" value="3">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">行业图片</label>
+		<div class="col-sm-5">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+                    <span class="btn btn-default btn-file">
+                    <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select file</span>
+                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                    <input type="file" class="default" name="picurl"/>
+                    </span>
+                <span class="fileupload-preview" style="margin-left:5px;"></span>
+                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
+            </div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<div class="col-sm-2 col-sm-offset-2"><input type="submit" name="" class="btn btn-success" id="art_sub" value="新增"></div>
+	</div>
+
+</form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>        
+        <!--body wrapper end-->
+        
+
+        <!--footer section start-->
+        <include file="Index/footer"/>
+
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+<!--file upload-->
+<script type="text/javascript" src="__PUBLIC__/asource/js/bootstrap-fileupload.min.js"></script>
+<!--tags input-->
+<script src="__PUBLIC__/asource/js/jquery-tags-input/jquery.tagsinput.js"></script>
+<script src="__PUBLIC__/asource/js/tagsinput-init.js"></script>
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+<script src="__PUBLIC__/asource/js/date/WdatePicker.js"></script>
+<script src="__PUBLIC__/asource/js/chosen.jquery.js"></script>
+
+
+</body>
+</html>

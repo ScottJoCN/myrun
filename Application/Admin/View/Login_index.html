@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>{$sys.webname}后台管理登录</title>
+
+    <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form class="form-signin" action="{:U('Login/dologin')}" method="post">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">登录</h1>
+            <!-- <img src="__PUBLIC__/asource/images/login-logo.png" alt=""/> -->
+            <h2 style="color: #6bc5a4;"><i>{$sys.webname}</i><span style="font-size: 20px;color: #000;"> - 后台管理</span></h2>
+        </div>
+        <div class="login-wrap">
+            <input type="text" class="form-control" placeholder="用户名" autofocus name="adname">
+            <input type="password" class="form-control" placeholder="密码" name="adpsw">
+            <input type="text" class="form-control" placeholder="验证码" name="verifyCode">
+			<div style="text-align:center;"><img src="{:U('Login/verify')}"  id="verify" width="145" height="40" border="1"></div>
+            <button class="btn btn-lg btn-login btn-block" type="submit">
+                <i class="fa fa-check"></i>
+            </button>
+            <div class="registration">
+                不是管理员?
+                <a class="" href="{:U('Login/reg')}">
+                    请注册
+                </a>
+            </div>
+
+
+        </div>
+
+        <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Forgot Password ?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Enter your e-mail address below to reset your password.</p>
+                        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                        <button class="btn btn-primary" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("#verify").click(function(){
+      var nowTime = new Date().getTime();
+      $("#verify").attr('src',"{:U('Login/verify')}#"+nowTime);
+    })
+
+});
+</script>
+</body>
+</html>

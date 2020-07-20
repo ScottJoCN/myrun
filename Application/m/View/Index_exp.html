@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>案例_{$sys.webtitle}</title>
+    <meta name="Keywords" content="{$sys.keywords}">
+    <meta name="Description" content="{$sys.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/news.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/service.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+    <style>
+        .info{
+            color:#808080;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+	
+<!-- isite.baidu.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body onload="setSize();" style="min-height:318px;">
+	
+
+<include file="Index/header"/>
+    
+<!-- banner开始 -->
+<div class="f-banner">
+    <div class="container mob_f_po">
+        <div class="c_banner_mob customer">
+            真实案例
+        </div>
+    </div>
+</div>
+<!-- banner结束 -->
+
+
+
+<div class="container" style="margin-bottom: 2%">
+    <foreach name="projD" item="vp">    
+        <div class="col-xs-6" style="margin-top: 5%"> 
+            <a href="{$vp.link_m}" target="_blank">
+                <img src="__ROOT__{$vp.picurl}" alt="{$vp.projname}" class="img-rounded" width="100%" height="210"> 
+                <div class="info">{$vp.projname}</div>
+            </a>
+        </div>  
+    </foreach>
+</div>
+
+
+<!-- 底部 -->
+<include file="Index/footer"/>
+<!-- 底部 -->
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_product").addClass("active");
+        });
+    </script>   
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>{$sys.webname} - 后台管理</title>
+
+  <!--icheck-->
+  <link href="__PUBLIC__/asource/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+  <!--dashboard calendar-->
+  <link href="__PUBLIC__/asource/css/clndr.css" rel="stylesheet">
+
+  <!--Morris Chart CSS -->
+  <link rel="stylesheet" href="__PUBLIC__/asource/js/morris-chart/morris.css">
+
+  <!--common-->
+  <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <div class="page-heading">
+            <h3>
+                {$sys.webname} - 后台主页
+            </h3>
+            <ul class="breadcrumb">
+                <li class="active">
+                    {$sys.webname} - 后台主页
+                </li>
+                <!-- <li class="active"> My Dashboard </li> -->
+            </ul>
+            
+        </div>        
+        <!-- header section end-->
+
+        
+        <!--body wrapper start-->
+        <!-- page heading start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                <!-- 四个big模块 -->
+                    
+                    <!--statistics start-->
+                    
+                    <!--statistics end-->
+                </div>
+                <!-- 四个big模块 -->
+
+                
+                <div class="col-md-4">
+                    <div class="panel panel-success">
+                        <header class="panel-heading">
+                            新增快捷入口
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <ul class="goal-progress">
+                                
+                                <!-- <li class="clearfix">
+                                    <span class="drag-marker"><i></i></span>
+                                    
+                                    <p class="todo-title" style="margin-left: 16px;">
+                                        <a href="{:U('Art/add',array('list'=>2,'cla'=>4))}">新增新闻</a>
+                                    </p>
+                                    
+                                </li> -->
+                                
+
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-info">
+                        <header class="panel-heading">
+                            列表快捷入口
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <ul class="goal-progress">
+                                
+                                <li class="clearfix">
+                                    <span class="drag-marker"><i></i></span>
+                                    
+                                    <p class="todo-title" style="margin-left: 16px;">
+                                        <a href="{:U('Art/index',array('list'=>2,'cla'=>3))}">     新闻列表</a>
+                                    </p>
+                                    
+                                </li>
+                               
+                                
+
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="panel panel-warning">
+                        <header class="panel-heading">
+                            属性快捷入口
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <ul class="goal-progress">
+
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+
+            </div>
+            
+        </div>
+        <!-- page heading end-->
+        <!--body wrapper end-->
+        
+
+        <!--footer section start-->
+        <include file="Index/footer"/>
+
+        <!--footer section end-->
+
+      
+    </div>
+
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+
+</body>
+</html>

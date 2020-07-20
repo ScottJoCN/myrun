@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>系统设置 - {$sys.webname}后台管理</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/asource/css/bootstrap-fileupload.min.css" />
+  <!--common-->
+  <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+	<style type="text/css">
+
+        #zy_allmap{
+            height:400px;width:100%;
+        }
+    </style>
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <!-- header section end-->
+		<div class="page-heading">
+            <h3>
+                系统设置
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                </li>
+                <li class="active"> 系统设置 </li>
+            </ul>
+            
+        </div>
+
+        <!--body wrapper start-->
+        <!-- row -->
+<div class="row">
+	<div class="col-sm-12">
+		<if condition="$msg eq 1">
+			<div class="col-sm-6">
+				<div class="alert alert-success fade in">
+				    <button type="button" class="close close-sm" data-dismiss="alert">
+				        <i class="fa fa-times"></i>
+				    </button>
+				    保存成功！
+				</div>
+			</div>
+		</if>
+		<if condition="$msg eq 2">
+			<div class="col-sm-6">
+				<div class="alert alert-block alert-danger fade in">
+				    <button type="button" class="close close-sm" data-dismiss="alert">
+				        <i class="fa fa-times"></i>
+				    </button>
+				    保存失败！
+				</div>
+			</div>
+		</if>
+
+		<form class="form-horizontal" role="form" method="post" action="{:U('System/insert')}" enctype="multipart/form-data">
+		    <div class="col-md-12">
+
+		        <section class="panel">
+		            <header class="panel-heading custom-tab dark-tab">
+		                <ul class="nav nav-tabs">
+		                    <li class="active">
+		                    <!-- <li class="active"> -->
+		                        <a href="#home" data-toggle="tab">基本设置</a>
+		                    </li>
+		                    <li class="">
+		                        <a href="#SEO" data-toggle="tab">SEO选项</a>
+		                    </li>
+		                    <!-- <li class="">
+		                        <a href="#profile2" data-toggle="tab">邮件选项</a>
+		                    </li>
+		                    <li class="">
+		                        <a href="#API" data-toggle="tab">API</a>
+		                    </li>
+		                    <li class="">
+		                        <a href="#contact2" data-toggle="tab">图片选项</a>
+		                    </li> -->
+		                </ul>
+		            </header>
+		            <div class="panel-body">
+		                <div class="tab-content">
+		                    <div class="tab-pane active" id="home">
+								<!-- 基本设置 -->
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">网站名称</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="网站名称" name="webname" value="{$sys.webname}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{webname}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">网站标题</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="网站标题" name="webtitle" value="{$sys.webtitle}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{webtitle}</label>
+								</div>
+
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">网站备案号</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="网站备案号" name="icp" value="{$sys.icp}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{icp}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">公司全称</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="公司全称" name="companyname" value="{$sys.companyname}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{companyname}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">公司电话</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="公司电话" name="tel" value="{$sys.tel}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{tel}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">电子邮箱</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="电子邮箱" name="email" value="{$sys.email}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{email}</label>
+								</div>
+								
+
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">Q Q</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="Q Q" name="qq" value="{$sys.qq}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{qq}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">联系地址</label>
+								    <div class="col-sm-4">
+								        <input type="text" class="form-control" placeholder="联系地址" name="address" value="{$sys.address}">
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{address}</label>
+								</div>
+								<!-- <div class="form-group">
+								    <label class="col-sm-2 control-label">关于我们</label>
+								    <div class="col-sm-6">
+								    <script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+								            <script>
+								                var editor;
+								                KindEditor.ready(function(K) {
+								                    editor = K.create('textarea[name="aboutus"]',{
+								                    allowFileManager : true
+								                    });
+								                })
+								            </script>
+								         <textarea class="form-control" name="aboutus" rows="15" style="visibility:hidden;">{$sys.aboutus}</textarea>
+								    </div>
+								    
+								</div> -->
+							<!-- 基本设置 -->
+							</div>
+		                    <div class="tab-pane" id="SEO">
+								<!-- SEO选项 -->
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">首页META关键词</label>
+								    <div class="col-sm-4">
+								         <textarea class="form-control" name="keywords" rows="5">{$sys.keywords}</textarea>
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{keywords}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">首页META网页描述</label>
+								    <div class="col-sm-4">
+								         <textarea class="form-control" name="description" rows="5">{$sys.description}</textarea>
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{description}</label>
+								</div>
+								
+
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">新闻META关键词</label>
+								    <div class="col-sm-4">
+								         <textarea class="form-control" name="artkw" rows="5">{$sys.artkw}</textarea>
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{artkw}</label>
+								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">新闻META网页描述</label>
+								    <div class="col-sm-4">
+								         <textarea class="form-control" name="artdes" rows="5">{$sys.artdes}</textarea>
+								    </div>
+								    <label class="col-sm-2 control-label">标签调用：{artdes}</label>
+								</div>	
+
+
+								<!-- SEO选项 -->
+							</div>
+
+							<div class="tab-pane" id="profile2">
+							<!-- 邮件选项 -->
+							<!-- 邮件选项 -->
+							</div>
+
+							<div class="tab-pane " id="API">
+							<!-- API选项 -->
+							<!-- <div class="form-group">
+							    <label class="col-sm-2 control-label">百度地图API密钥</label>
+							    <div class="col-sm-4">
+							        <input type="text" class="form-control" placeholder="百度地图API" name="baiduapi" value="{$sys.baiduapi}">
+							    </div>
+							    <label class="col-sm-2 control-label">标签调用：{baiduapi}</label>
+							</div> -->
+							
+
+							<!-- <div class="form-group">
+							    <label class="col-sm-2 control-label">公司地图标注</label>
+							    <div class="col-sm-4">
+							        <input type="text" class="form-control" placeholder="公司位置" name="map" value="{$sys.map}" id="txtMapMarker">
+							    </div>
+							    <div class="col-sm-4"><a class="btn btn-primary" href="#myModal-1" data-toggle="modal">获取位置</a></div>
+							</div> -->
+							<!-- API选项 -->
+		                    </div>
+		                    <!-- 图片选项 -->
+		                    <div class="tab-pane" id="contact2">
+		                    	<div class="form-group">
+									<div class="form-group last">
+							            <label class="control-label col-sm-2">文章标题图</label>
+							            <div class="col-md-8">
+							                <div class="fileupload fileupload-new" data-provides="fileupload">
+							                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+							                        <img src="__ROOT__{$sys.art_pic}" alt="" />
+							                    </div>
+							                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+							                    <div>
+							                           <span class="btn btn-default btn-file">
+							                           <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
+							                           <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+							                <!-- 图片input -->
+							                           <input type="file" class="default" name="art" value="__ROOT__{$sys.art_pic}"/>
+							                           </span>
+							                         <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
+							                    </div>
+							                </div>
+							            </div>
+							        </div>
+								</div>
+
+		                    
+		                    	
+		                    </div>
+		                    <!-- 图片选项 -->
+		                </div>
+		            </div>
+				           
+		        </section>
+		        <div class="form-group">
+		        	<div class="col-sm-5 col-sm-offset-4"><button class="btn btn-primary">确定保存</button></div>
+		    	</div> 
+		    </div>
+
+		</form>
+
+	</div>
+<!-- row -->
+</div>
+        <!--body wrapper end-->
+        
+<div style="margin-bottom:40px; "></div>
+        <!--footer section start-->
+<include file="Index/footer"/>
+
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+<!-- 地图modal框 -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                    <h4 class="modal-title">地图</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">搜索：</label>
+                            <div class="col-sm-6">
+                                <input type="input" class="form-control" id="txtarea">
+                            </div>
+                            <div class="col-sm-2">
+                                 <input id="areaSearch" type="button" class="form-control" value="搜索">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">经纬度：</label>
+                            <div class="col-sm-4">
+                                <input name="txtpoint" type="text" id="txtpoint" class="form-control">
+                            </div>
+                            <label class="col-sm-2 control-label">标注点区域</label>
+                            <div class="col-sm-4">
+                                <input name="txtAreaCode" type="text" id="txtAreaCode" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div id="zy_allmap"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" aria-hidden="true" data-dismiss="modal" id="btnSave" type="button" value="确定保存">确定保存</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- 地图modal框 -->
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asource/js/bootstrap-fileupload.min.js"></script>
+
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+<!-- 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=478wObXOssnSH1jSC9vO0USOubpise6M"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+
+    // var ddlCity = document.getElementById("ddlCity").text; //获取当前城市名称
+    // var txtCommunityName = document.getElementById("txtCommunityName").value; //获取当前小区名称
+
+    var obj = document.getElementById("txtMapMarker").value;
+    var strpoint = obj.split(","); //字符分割 
+
+    // 百度地图API功能
+    var map = new BMap.Map("zy_allmap");                       // 创建Map实例
+    map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+    map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
+    map.addControl(new BMap.OverviewMapControl());              //添加缩略地图控件
+    map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+    map.addControl(new BMap.MapTypeControl());    //添加地图类型控件
+    
+    var point = new BMap.Point(118.790627,32.047998);
+	map.centerAndZoom(point,16);
+
+    if (obj == "") {
+    	var geolocation = new BMap.Geolocation();
+		geolocation.getCurrentPosition(function(r){
+			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+				var mk = new BMap.Marker(r.point);
+				map.addOverlay(mk);
+				map.panTo(r.point);
+				// alert('您的位置：'+r.point.lng+','+r.point.lat);
+			}
+			else {
+				alert('failed'+this.getStatus());
+			}        
+		},{enableHighAccuracy: true})
+    	// var map = new BMap.Map("allmap");
+		// var point = new BMap.Point(116.331398,39.897445);
+		// map.centerAndZoom(point,16);
+
+		// function myFun(result){
+		// 	var cityName = result.name;
+		// 	map.setCenter(cityName);
+		// 	// alert("当前定位城市:"+cityName);
+		// }
+		// var myCity = new BMap.LocalCity();
+		// myCity.get(myFun); 
+        // map.centerAndZoom(new BMap.Point(118.790564,32.047944), 16); //初始化时，即可设置中心点和地图缩放级别。
+        // addMarker(new BMap.Point(point));
+    }
+    else {
+        map.centerAndZoom(new BMap.Point(parseFloat(strpoint[0]), parseFloat(strpoint[1])), 16);     // 初始化地图,设置中心点坐标和地图级别
+        
+        var newsPointMarker = new BMap.Point(parseFloat(strpoint[0]), parseFloat(strpoint[1])); // 创建标注的坐标
+        addMarker(newsPointMarker);
+        document.getElementById("txtpoint").value = obj;
+        //alert(obj);
+    }
+
+
+
+//搜索 
+document.getElementById("areaSearch").onclick = function () { 
+// 创建地址解析器实例 
+var myGeo = new BMap.Geocoder(); 
+var searchTxt = document.getElementById("txtarea").value; 
+// 将地址解析结果显示在地图上，并调整地图视野 
+myGeo.getPoint(searchTxt, function (point) { 
+    if (point) { 
+        map.centerAndZoom(point, 16);
+        document.getElementById("txtpoint").value = point.lng + ',' + point.lat; 
+        var pointMarker = new BMap.Point(point.lng, point.lat); 
+        geocodeSearch(pointMarker); 
+
+        map.addOverlay(new BMap.Marker(point)); 
+    } 
+    else 
+    alert("搜索不到结果"); 
+    }, "全国"); 
+} 
+map.enableScrollWheelZoom(); 
+
+
+map.addEventListener("click", function (e) {
+    document.getElementById("txtpoint").value = e.point.lng + ',' + e.point.lat; 
+map.clearOverlays(); 
+var pointMarker = new BMap.Point(e.point.lng, e.point.lat); // 创建标注的坐标 
+addMarker(pointMarker); 
+geocodeSearch(pointMarker); 
+}); 
+
+function addMarker(point) { 
+var myIcon = new BMap.Icon("__PUBLIC__/asource/images/markers.png", new BMap.Size(23, 26), 
+{ offset: new BMap.Size(10, 26), 
+imageOffset: new BMap.Size(0, 0) 
+}); 
+var marker = new BMap.Marker(point, { icon: myIcon }); 
+map.addOverlay(marker); 
+} 
+function geocodeSearch(pt) { 
+var myGeo = new BMap.Geocoder(); 
+myGeo.getLocation(pt, function (rs) { 
+var addComp = rs.addressComponents; 
+document.getElementById("txtAreaCode").value = addComp.province + "," + addComp.city + "," + addComp.district; 
+}); 
+} 
+
+</script> -->
+<script type="text/javascript">
+    $("#btnSave").click(function(){
+        a = $("#txtpoint").val();
+        $("#txtMapMarker").attr("value",a);
+    });
+</script>
+
+
+
+</body>
+</html>

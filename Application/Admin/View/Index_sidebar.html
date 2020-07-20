@@ -1,0 +1,104 @@
+<!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="{:U('Index/index')}" style="color: #65CEA7;line-height: 50px;">{$sys.webname}</a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="{:U('Index/index')}" style="color: #65CEA7;">{$sys.webname}</a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <!-- <img alt="" src="__PUBLIC__/asource/images/photos/user-avatar.png" class="media-object"> -->
+                    <div class="media-body">
+                        <h4><a href="#">{$Think.session.nickname}</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">账号信息</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                  <li><a href="{:U('Person/index',array('list'=>5,'cla'=>1))}"><i class="fa fa-user"></i> <span>个人信息</span></a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i> <span>设置</span></a></li>
+                  <li><a href="{:U('Login/logout')}"><i class="fa fa-sign-out"></i> <span>退出</span></a></li>
+                </ul>
+            </div>
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="__APP__"><i class="fa fa-home"></i> <span>后台主页</span></a></li>
+                <li class="menu-list <if condition='$list eq 1'> nav-active </if>" ><a href=""><i class="fa fa-laptop"></i> <span>主页</span></a>
+                    <ul class="sub-menu-list">
+                        
+                        <li <if condition="$list eq 1 and $cla eq 1"> class='active' </if>><a href="{:U('home/piclist',array('list'=>1,'cla'=>1))}">     头图</a></li>
+                        <li <if condition="$list eq 1 and $cla eq 2"> class='active' </if>><a href="{:U('home/attr',array('list'=>1,'cla'=>2))}">       介绍列表</a></li>
+                        <li <if condition="$list eq 1 and $cla eq 3"> class='active' </if>><a href="{:U('home/company',array('list'=>1,'cla'=>3))}">       行业图片</a></li>
+                        <li <if condition="$list eq 1 and $cla eq 4"> class='active' </if>><a href="{:U('home/caselist',array('list'=>1,'cla'=>4))}">       案例图片</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="menu-list <if condition='$list eq 2'> nav-active </if>" ><a href=""><i class="fa fa-book"></i> <span>产品介绍</span></a>
+                    <ul class="sub-menu-list">
+                        
+                        <li <if condition="$list eq 2 and $cla eq 1"> class='active' </if>><a href="{:U('project/pp',array('list'=>2,'cla'=>1))}">     头图</a></li>
+                        <li <if condition="$list eq 2 and $cla eq 2"> class='active' </if>><a href="{:U('project/prolist',array('list'=>2,'cla'=>2))}">       产品列表</a></li>
+                        <li <if condition="$list eq 2 and $cla eq 3"> class='active' </if>><a href="{:U('project/advantage',array('list'=>2,'cla'=>3))}">       服务优势</a></li>
+                        <li <if condition="$list eq 2 and $cla eq 4"> class='active' </if>><a href="{:U('project/industry',array('list'=>2,'cla'=>4))}">       适用行业</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="menu-list <if condition='$list eq 7'> nav-active </if>" ><a href=""><i class="fa fa-comment"></i> <span>定制开发</span></a>
+                    <ul class="sub-menu-list">
+                        <li <if condition="$list eq 7 and $cla eq 1"> class='active' </if>><a href="{:U('custom/pp',array('list'=>7,'cla'=>1))}">     头图</a></li>
+                        <li <if condition="$list eq 7 and $cla eq 2"> class='active' </if>><a href="{:U('custom/intro',array('list'=>7,'cla'=>2))}">     定制开发内容</a></li>
+                        <li <if condition="$list eq 7 and $cla eq 3"> class='active' </if>><a href="{:U('custom/service',array('list'=>7,'cla'=>3))}">     服务流程</a></li>
+                        <li <if condition="$list eq 7 and $cla eq 4"> class='active' </if>><a href="{:U('custom/cases',array('list'=>7,'cla'=>4))}">     客户案例</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list <if condition='$list eq 8'> nav-active </if>" ><a href=""><i class="fa fa-user"></i> <span>关于我们</span></a>
+                    <ul class="sub-menu-list">
+                        <li <if condition="$list eq 8 and $cla eq 1"> class='active' </if>><a href="{:U('about/index',array('list'=>8,'cla'=>1))}">  头图</a></li>
+                        <li <if condition="$list eq 8 and $cla eq 2"> class='active' </if>><a href="{:U('about/lists',array('list'=>8,'cla'=>2))}">    自定义内容</a></li>
+                        
+                    </ul>
+                </li>
+                
+
+                <li class="menu-list <if condition='$list eq 5'> nav-active </if>"><a href=""><i class="fa fa-info-circle"></i> <span>个人中心</span></a>
+                    <ul class="sub-menu-list">
+                        <li <if condition="$list eq 5 and $cla eq 1"> class='active' </if>><a href="{:U('Person/index',array('list'=>5,'cla'=>1))}">     个人资料</a></li>
+                        <li <if condition="$list eq 5 and $cla eq 2"> class='active' </if>><a href="{:U('Person/psw',array('list'=>5,'cla'=>2))}">       密码修改</a></li>
+                    </ul>
+                </li>
+
+                <if condition="$Think.session.group eq 1">
+                <li class="menu-list <if condition='$list eq 4'> nav-active </if>" ><a href=""><i class="fa fa-user"></i> <span>用户管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li <if condition="$list eq 4 and $cla eq 1"> class='active' </if>><a href="{:U('Admin/index',array('list'=>4,'cla'=>1))}">  管理员列表</a></li>
+                        <li <if condition="$list eq 4 and $cla eq 2"> class='active' </if>><a href="{:U('Admin/add',array('list'=>4,'cla'=>2))}">    新增管理员</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="menu-list <if condition='$list eq 6'> nav-active </if>"><a href=""><i class="fa fa-cogs"></i> <span>系统设置</span></a>
+                    <ul class="sub-menu-list">
+                        <li <if condition="$list eq 6 and $cla eq 1"> class='active' </if>><a href="{:U('System/index',array('list'=>6,'cla'=>1))}"> 基本设置</a></li>
+                    </ul>
+                </li>
+                </if>
+               
+                <li><a href="{:U('Login/logout')}"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->

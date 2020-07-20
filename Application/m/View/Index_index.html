@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{$sys.webtitle}</title>
+	<meta name="Keywords" content="{$sys.keywords}">
+    <meta name="Description" content="{$sys.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+
+<!-- isite.baidu.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body onload="setSize();">
+	
+
+<include file="Index/header"/>
+    
+<!-- banner开始 -->
+<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+<div class="banner-box" id="userBlog">
+    <div class="flexslider">
+        <ul class="slides">
+                <li class="slides-1">
+                    <img class="w-100" src="__PUBLIC__/m/images/banner-2.png" height="300"/>
+                </li>              
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="addWrap">
+    <div class="swipe" id="mySwipe">
+        <div class="swipe-wrap">
+            <div>
+                <a href="javascript:;"><img class="img-responsive" src="__PUBLIC__/m/images/banner-2.png"  /></a>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <ul id="position">
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<!--/addWrap-->
+<script type="text/javascript" src="__PUBLIC__/m/js/hhSwipe.js"></script>
+<script type="text/javascript">
+    var bullets = document.getElementById('position').getElementsByTagName('li');
+
+    var banner = Swipe(document.getElementById('mySwipe'), {
+        auto: 4000,
+        continuous: true,
+        disableScroll: false,
+        callback: function (pos) {
+            var i = bullets.length;
+            while (i--) {
+                bullets[i].className = ' ';
+            }
+            bullets[pos].className = 'cur';
+        }
+    })
+</script>
+<div class="content-box">
+    <div class="container">
+        <div class="row">
+        	<div style="width: 100%;text-align: center;">
+				<div style="font-size: 22px;font-weight: bold;letter-spacing:2px;margin-bottom: 1%;margin-top: -6%;margin-bottom: 2%">
+					业务范畴
+				</div>
+				<img src="__PUBLIC__/home/images/bn1.png" alt="" width="30%">
+			</div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_1.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>搜索引擎推广SEM</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_2.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>信息流广告</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_3.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>DSP</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_4.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>搜索引擎优化</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_5.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>舆情监控</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
+                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_6.png" alt="" style="width: 50px;height: 50px;"></div>
+                <p>小程序开发</p>
+            </div>
+        </div>
+
+		<div class="row" style="margin-top: 5%;">
+        	<div style="width: 100%;text-align: center;margin-bottom: 2%">
+				<div style="font-size: 22px;font-weight: bold;letter-spacing:2px;margin-bottom: 1%;margin-top: -6%;">
+					业务优势
+				</div>
+				<img src="__PUBLIC__/home/images/bn1.png" alt="" width="30%">
+			</div>
+			<div style="margin:0 auto;clear: both;width: 70%;">
+	            <div style="width: 100%;float: left;">
+	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_7.png" alt="" style="width: 40px;height: 40px;"></div>
+					<p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">百度KA授权代理商可服务全国</p>
+	            </div>
+	            <div style="width: 100%;float: left;">
+	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_8.png" alt="" style="width: 40px;height: 40px;"></div>
+	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">综合搜索引擎推广和优化精准营销</p>
+	            </div>
+	            <div style="width: 100%;float: left;">
+	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_10.png" alt="" style="width: 40px;height: 40px;"></div>
+	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">专业团队提供行业定制化解决方案</p>
+	            </div>
+	            <div style="width: 100%;float: left;">
+	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_9.png" alt="" style="width: 40px;height: 40px;"></div>
+	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">海量优质联盟友媒和渠道</p>
+	            </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<include file="Index/footer"/>
+
+
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_home").addClass("active");
+        });
+    </script>   
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+/* 轮播图 */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0; position: relative; overflow: hidden; height: auto; }
+/*.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;}*/ /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img.w-100 {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+.no-js .slides > li:first-child {display: block;}
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider .slides { zoom: 1; overflow:hidden;}
+.carousel li { margin-right: 5px; }
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a  { text-decoration:none; display: block; width: 40px; height: 48px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; color: rgba(0,0,0,0.8);  background:url(../images/arr.png) no-repeat; text-indent:-999em }
+.flex-direction-nav .flex-prev { left: -50px; background-position:0 0 }
+.flex-direction-nav .flex-next { right: -50px; background-position:-132px 0}
+.flexslider:hover .flex-prev { opacity: 0.7; left: 10px;}
+.flexslider:hover .flex-next { opacity: 0.7; right: 10px;}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; }
+.flex-direction-nav .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
+
+
+/* Pause/Play */
+.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; background:#ddd}
+.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: '\f004'; }
+.flex-pauseplay a:hover  { opacity: 1; }
+.flex-pauseplay a.flex-play:before { content: '\f003'; }
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: 10px; text-align: center;z-index: 100;}
+.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #666; background: rgba(255,255,255,0.3); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px;}
+.flex-control-paging li a:hover { background: #333; background: rgba(255,255,255,0.7); }
+.flex-control-paging li a.flex-active { background: #000; background: rgba(255,255,255,0.9); cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+
+/* --------------------banner部分-------------------------- */
+
+
+.pic-box img{
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+@media screen and (min-width: 767px){
+    .content-list{
+    /*min-height:196px;*/
+}
+    .content-list{
+        color:#666;
+        font-size:14px;
+        text-align:center;
+    }
+    .content-list a{
+    display:inline-block;
+    width:85px;
+    height:85px;
+}
+    /*.slides li{
+    position:relative;
+}*/
+    .content-list p{
+        padding-top:10px;
+    }
+}
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
+  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
+}
+@media screen and (max-width: 767px){
+    .flex-direction-nav .flex-prev,.flex-direction-nav .flex-next {display: none;}
+    .flex-control-nav{
+    	bottom: 0px;
+    }
+    .content-box .row{
+        padding-top:20px;
+    }
+    .content-list{
+        padding-top:10px;
+        width:50%;
+        float:left;
+        text-align:center;
+    }
+   .content-list p{
+       padding-top:10px;
+         font-size:10px;
+   }
+    .content-list p br{
+        display:none;
+    }
+    .content-list a{
+        display:inline-block;
+        width:50px;
+        height:50px;
+    }
+    .flex-control-paging li a{
+    	width: 8px;
+    	height: 8px;
+    }
+    .mg-t{
+    margin-top: 20px;   
+    }
+    .swipe-wrap .mb-ban{
+        position:absolute;
+        width:50%;
+        left:25%;
+    }
+    .pot-f a{
+        display:inline-block;
+        background:url(../images/sjbut2.png) no-repeat;
+        background-size:cover;
+        width:91px;
+        height:25px;
+        margin-top:10px;
+    }
+     .pot-f a:hover{
+         background-position:0 -25px;
+     }
+   .swipe-wrap  .pot-f{
+       text-align:center;
+        width:100%;
+        position:absolute;
+    }
+    .swipe-wrap  .pot-f h2{
+        margin:0;
+        padding-top:10px;
+    }
+}
+
+
+.slides .ban-anm-a{
+    width:22%;
+    position:absolute;
+    top:22%;
+    /*display:none;*/
+}
+
+.slides .ban-anm-txt{
+    position:absolute;
+    top:32%;
+    width:26%;
+}
+.slides .ban-anm-txt img{
+    width:100%;
+}
+.slides .ban-anm-butt{
+    display:none;
+    display:block;
+    margin-top:43px;
+    cursor:pointer;
+    width:133px;
+    height:37px;
+    background:url(../images/butt.png) no-repeat;
+        
+}
+.slides .ban-anm-butt:hover{
+    background:url(../images/butt-hover.png) no-repeat;
+}
+
+.content-list .chanpin{
+    background:url(../images/chanpin.png) no-repeat;
+    background-size:cover;
+}.content-list .fuwu{
+    background:url(../images/fuwu.png) no-repeat;
+    background-size:cover;
+
+}.content-list .tuandui{
+    background:url(../images/time.png) no-repeat;
+    background-size:cover;
+
+}.content-list .jishu{
+    background:url(../images/jishu.png) no-repeat;
+    background-size:cover;
+
+}.content-list .chanpin:hover{
+    background:url(../images/chanpin-h.png) no-repeat;
+    background-size:cover;
+
+}.content-list .fuwu:hover{
+    background:url(../images/fuwu-h.png) no-repeat;
+    background-size:cover;
+
+}.content-list .tuandui:hover{
+    background:url(../img/tuandui-h.png) no-repeat;
+        background-size:cover;
+
+}.content-list .jishu:hover{
+    background:url(../img/jishu-h.png) no-repeat;
+        background-size:cover;
+
+}
+
+ .content-list .jishu{
+     cursor:default;
+ }

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Dynamic Load Examples</title>
+		<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		<script charset="utf-8" src="jquery.js"></script>
+		<script>
+			$(function() {
+				$('input[name=load]').click(function() {
+					$.getScript('../kindeditor-min.js', function() {
+						KindEditor.basePath = '../';
+						KindEditor.create('textarea[name="content"]');
+					});
+				});
+				$('input[name=remove]').click(function() {
+					KindEditor.remove('textarea[name="content"]');
+				});
+			});
+		</script>
+	<!-- isite.baidu.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+	<body>
+		<h3>异步加载</h3>
+		<form>
+			<textarea name="content" style="width:800px;height:200px;"></textarea>
+			<p>
+				<input type="button" name="load" value="加载JS并创建编辑器" />
+				<input type="button" name="remove" value="删除编辑器" />
+			</p>
+		</form>
+	</body>
+</html>

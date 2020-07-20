@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>管理员列表 - {$sys.webname}后台管理</title>
+
+  <!--common-->
+  <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <!-- header section end-->
+		<div class="page-heading">
+            <h3>
+                管理员列表
+            </h3>
+            <ul class="breadcrumb">
+            	<li>
+                    <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                </li>
+            	
+                <li class="active">
+                    管理员列表
+                </li>
+            </ul>
+            
+        </div>
+		<div class="col-md-3" style="margin-bottom:20px;">
+		    <!--search start-->
+		    <form class="form-inline" action="{:U('Admin/index')}" method="post">
+		        <div class="form-group">
+		            <input type="text" class="form-control" name="keyword" placeholder="用户名/邮箱/昵称" />
+		        </div> 
+		        <div class="form-group"><button type="submit" class="btn btn-success">搜索</button></div>
+		        
+		    </form>
+		    <!--search end-->
+		</div>
+        <!--body wrapper start-->
+        <div class="wrapper">
+		    <div class="row">
+		        <div class="col-md-12">
+		        	<div class="panel">
+			            <div class="panel-heading">
+			              用户列表
+			              <span class="tools pull-right">
+			              <a class="fa fa-plus" href="{:U('Admin/add')}"></a>
+			              <a class="fa fa-chevron-down" href="javascript:;"></a>
+			              </span>
+			            </div>
+			            <div class="panel-body">
+<div class="col-md-12">
+	<button class="btn btn-default" type="button" id="all">全选  </button>
+	<button class="btn btn-default" type="button" id="not">反选  </button>
+	<button class="btn btn-default" type="button" id="allnot">全不选 </button>	
+</div>
+<form name="" method="">
+	<table class="table  table-hover general-table">
+	    <thead>
+	        <tr>
+	            <th><input type="checkbox" name="control" id="control"></th>
+	            <th>ID</th>
+	            <th>登录名</th>
+	            <th>昵称</th>
+	            <th>邮箱</th>
+	            <th>用户组</th>
+	            <th>是否锁定</th>
+	            <th>是否通过审核</th>
+	            <th>最后登录IP</th>
+	            <th>最后登录时间</th>
+	            <th>登录次数</th>
+	            <th>操作管理</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    <foreach name="adminD" item="va">
+	        <tr>
+	           <td><input type="checkbox" name="id" value="{$va.id}"></td>
+	           <td>{$va.id}</td>
+	           <td>{$va.username}</td>
+	           <td>{$va.nickname}</td>
+	           <td>{$va.email}</td>
+	           <td>{$va.group}</td>
+	           <td>
+	           <if condition="$va['islock'] eq 1">
+	                <i class="fa fa-check" style="color:green"></i>
+	           <else/>
+	                <i class="fa fa-times" style="color:red"></i>
+	           </if>
+	           </td>
+	           <td>
+	           <if condition="$va['isreg'] eq 1">
+	                <i class="fa fa-check" style="color:green"></i>
+	           <else/>
+	                <i class="fa fa-times" style="color:red"></i>
+	           </if>
+	           </td>
+	           <td>{$va.lastip}</td>
+	           <td>{$va.lasttime|date="Y/m/d H:i:s",###}</td>
+	           <td>{$va.loginno}</td>
+	           <td>
+	            <a href="__URL__/edit/id/{$va.id}" title="编辑" class="btn btn-success"><img src="__PUBLIC__/asource/images/icons/edit.png" alt="" width="20px"/></a>
+	            <a title="删除" class="btn btn-warning" onclick="if(confirm('确认要删除吗?')){location.href = '{:U("Admin/del",array("id"=>$va["id"]))}';}"><img src="__PUBLIC__/asource/images/icons/del.png" alt="" width="20px"/></a>
+				<if condition="$va['islock'] eq 0">
+	            	<a href="__URL__/lock/id/{$va.id}" title="锁定"><button class="btn btn-info" type="button"><i class="fa fa-unlock"></i>  </button></a>
+	            <else/>
+	            	<a href="__URL__/unlock/id/{$va.id}" title="解锁"><button class="btn btn-info" type="button"><i class="fa fa-lock"></i>  </button></a>
+				</if>
+	            </td>
+	        </tr>
+	    </foreach>
+	    </tbody>
+	</table>
+</form>
+<div class="col-md-12">
+	<button class="btn btn-primary" type="button" id="lock" title="锁定"><i class="fa fa-lock"></i>  </button> 
+	<button class="btn btn-warning" type="button" id="unlock" title="一键解锁"><i class="fa fa-unlock"></i>  </button> 
+	<button class="btn btn-success" type="button" id="check" title="一键过审"><i class="fa fa-check"></i>  </button> 
+	<button class="btn btn-danger" type="button" id="trash" title="一键删除"><i class="fa fa-trash-o"></i>  </button> 
+</div>
+<style>
+	.pagination .current{
+        background-color: #65CEA7;
+        color: #fff;
+    }
+</style>
+{$page}
+			            </div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+        <!--body wrapper end-->
+        
+
+        <!--footer section start-->
+        <include file="Index/footer"/>
+
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+<script>
+	$(function(){
+		$('#trash').click(function(){
+			if(confirm('确认要删除吗?')){
+				var trash_arr = '';
+				$('.table tbody input[name=id]').each(function(){
+					if($(this).attr("checked"))
+						trash_arr += $(this).val() + ",";
+				});
+				if(trash_arr.length > 0) {
+					trash_arr = trash_arr.substring(0, trash_arr.length - 1);
+	        		$.ajax({
+	                    type:"post",
+	                    url:"{:U('Admin/batch_del')}",
+	                    data:{id:trash_arr},
+	                    dataType:'text',
+	                    success:function(res){
+	                        // console.log(res);
+	                        if(res == 1){
+
+	                            window.location.reload(); 
+	                            alert('删除成功！');
+	                        }else if (res == 3) {
+	                        	alert('用户被锁定，不能删除！');
+	                        }else{
+	                            alert('删除失败');
+	                        }
+	                    }
+	                });
+
+				}else {
+					alert('请选择您要删除的用户！');
+				}
+			}
+		});
+
+		$('#lock').click(function(){
+			var lock_arr = '';
+			$('.table tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					lock_arr += $(this).val() + ",";
+			});
+			if(lock_arr.length > 0) { 	//如果获取到
+        		lock_arr = lock_arr.substring(0, lock_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Admin/batch_lock')}",
+                    data:{id:lock_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('锁定成功！'); 
+                        }else{
+                            alert('锁定失败');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要锁定的用户！');
+        	}
+		});
+		$('#unlock').click(function(){
+			var unlock_arr = '';
+			$('.table tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					unlock_arr += $(this).val() + ",";
+			});
+			if(unlock_arr.length > 0) { 	//如果获取到
+        		unlock_arr = unlock_arr.substring(0, unlock_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Admin/batch_unlock')}",
+                    data:{id:unlock_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload(); 
+                            alert('解锁成功！');
+                        }else{
+                            alert('解锁失败');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要解锁的用户！');
+        	}
+		});
+		$('#check').click(function(){
+			var check_arr = '';
+			$('.table tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					check_arr += $(this).val() + ",";
+			});
+			if(check_arr.length > 0) { 	//如果获取到
+        		check_arr = check_arr.substring(0, check_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Admin/batch_check')}",
+                    data:{id:check_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload(); 
+                            alert('过审成功！');
+                        }else{
+                            alert('过审失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要过审的用户！');
+        	}			
+		});
+	})
+</script>
+<script>
+	$(function(){
+			
+			$("#all").click(function(){
+				$("tbody :input[type='checkbox']").attr("checked",true);
+			})
+			$("#not").click(function(){
+				
+				$("tbody :input[type='checkbox']").each(function(k,vo){
+					if($(vo).attr("checked")){
+						$(vo).attr("checked",false);
+					}else{
+						$(vo).attr("checked",true);
+					}
+				})
+			})
+			$("#allnot").click(function(){
+				$("tbody :input[type='checkbox']").attr("checked",false);
+			})
+
+			$("#control").click(function(){
+				if($(this).attr("checked")){
+					$("tbody :input[type='checkbox']").attr("checked",true);
+				}else{
+					$("tbody :input[type='checkbox']").attr("checked",false);
+				}
+			})
+
+				
+			
+		})
+</script>
+
+</body>
+</html>

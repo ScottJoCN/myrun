@@ -1,0 +1,32 @@
+<script>
+    function resetTabs(){
+        $("#tabcontent > div").hide(); //Hide all content
+        $("#tabs a").attr("id",""); //Reset id's      
+    }
+    var myUrl = window.location.href; //get URL
+    var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+    var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
+    (function(){
+        $("#tabcontent > div").hide(); // Initially hide all content
+        $("#tab_shift div:first").attr("class","current_div"); // Activate first tab
+        $("#tabcontent > div:first").fadeIn(); // Show first tab content
+        $("#tab_shift div").on("click",function(e) {
+            e.preventDefault();
+            if ($(this).attr("class") == "current_div"){ //detection for current tab
+            	return
+            }
+            else{             
+	            resetTabs();
+	            $(this).attr("class","current_div"); // Activate this
+	            $($(this).attr('name')).fadeIn(); // Show content for current tab
+            }
+        });
+        for (i = 1; i <= $("#tab_shift div").length; i++) {
+          if (myUrlTab == myUrlTabName + i) {
+              resetTabs();
+              $("div[name='"+myUrlTab+"']").attr("class","current_div"); // Activate url tab
+              $(myUrlTab).fadeIn(); // Show url tab content        
+        	}
+        }
+    })()
+  </script> 

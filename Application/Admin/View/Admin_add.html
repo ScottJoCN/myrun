@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>新增管理员用户 - {$sys.webname}后台管理</title>
+
+  <!--common-->
+  <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <!-- header section end-->
+		<div class="page-heading">
+            <h3>
+                添加管理员
+            </h3>
+            <ul class="breadcrumb">
+            	<li>
+                    <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                </li>
+            	
+                <li>
+                    <a href="{:U('Admin/index',array('list'=>4,'cla'=>1))}">管理员列表</a>
+                </li>
+                <li class="active"> 添加管理员 </li>
+            </ul>
+            
+        </div>
+
+        <!--body wrapper start-->
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="panel">
+	            <div class="panel-heading">
+	              添加管理员
+	              <span class="tools pull-right">
+	              <a class="fa fa-chevron-down" href="javascript:;"></a>
+	              </span>
+	            </div>
+        	
+				<div class="panel-body">
+				<form class="form-horizontal form-add-admin" method="post" action="{:U('Admin/insert')}">
+					
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">昵称</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="nickname" placeholder="昵  称">
+						</div>
+					</div>
+					<div class="form-group" id="regEmail">
+						<label class="col-sm-2 control-label">邮箱</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="email" placeholder="邮  箱" id="email">
+						</div>
+						<p class="help-block" id="email-tips" style="display: none;">邮箱已被占</p>
+					</div>
+					
+					<div class="form-group" id="regname">
+						<label class="col-sm-2 control-label">登录名</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="adname" placeholder="用户名" id="adname">
+						</div>
+						<p class="help-block" style="display: none;" id="adname-tips"></p>
+					</div>
+					<div class="form-group" id="regpsw1">
+						<label class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-5">
+							<input type="password" class="form-control" name="adpsw" placeholder="密码" id="psw1">
+						</div>
+						<p class="help-block" style="display: none;" id="psw-tips1"> 6-15位大小写字母及'_' </p>
+					</div>
+					<div class="form-group" id="regpsw2">
+						<label class="col-sm-2 control-label">确认密码</label>
+						<div class="col-sm-5">
+							<input type="password" class="form-control" name="conpsw" placeholder="确认密码" id="psw2">
+						</div>
+						<p class="help-block" style="display: none;" id="psw-tips2">两次输入不一致</p>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">所属用户组</label>
+						<div class="col-sm-5">
+							<select class="form-control" name="group">
+								<option value="1" >超级管理员</option>
+								<option value="2" >普通管理员</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">是否锁定</label>
+						<div class="col-sm-5">
+							<label class="checkbox-inline">
+						        <input type="checkbox" name="islock" value="1">锁定（锁定不能删除）
+						    </label>							
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-2"><input type="submit" name="" class="btn btn-success" id="submitbtn"></div>
+					</div>
+
+				</form>
+	            </div>
+        </div>
+    
+</div>
+        <!--body wrapper end-->
+        
+
+        <!--footer section start-->
+        <include file="Index/footer"/>
+
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+<script>
+$(function(){
+    // 邮箱正则
+    var regEm = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    // 密码正则
+    var regPsw = /^[0-9a-zA-Z_]{6,15}$/;
+    var con_email = 0;
+    var con_name = 0;
+    var con_psw1 = 0;
+    var con_psw2 = 0;
+    // 验证邮箱
+    // function fun_reg_email(){
+        $('#email').bind('input propertychange', function() {
+            var emailValue = $(this).val();
+            var matchEmail = emailValue.match(regEm);
+            if(emailValue == ''){
+                $('#email-tips').show();
+                $('#regEmail').addClass('has-error');
+                $('#regEmail #email-tips').html('邮箱不能为空');
+                con_email = 0;
+                // console.log(con_email);
+            }else if(!matchEmail){
+                $('#email-tips').show();
+                $('#regEmail').addClass('has-error');
+                $('#regEmail #email-tips').html('邮箱格式不正确');
+                con_email = 0;
+                // console.log(con_email);
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"{:U('Login/regemail')}",
+                    data:{email:emailValue},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            $('#email-tips').show();
+                            $('#regEmail').addClass('has-error');
+                            $('#regEmail #email-tips').html('邮箱被占用');
+                            con_email = 0;
+                            // console.log(con_email);
+                        }else{
+                            $('#email-tips').hide();
+                            $('#regEmail').removeClass('has-error');
+                            con_email = 1;
+                            // console.log(con_email);
+                        }
+                    }
+                });
+            }
+        })
+    // }
+    // 验证邮箱
+    // 验证用户名
+    // function fun_reg_name(){
+        $('#adname').bind('input propertychange', function() {
+            var adminValue = $(this).val();
+            // console.log(adminValue);
+            if(adminValue == ''){
+                $('#adname-tips').show();
+                $('#regname').addClass('has-error');
+                $('#regname #adname-tips').html('用户名不能为空');
+                con_name = 0;
+            }else{
+                $.ajax({
+                    type:"post",
+                    url:"{:U('Login/regadmin')}",
+                    data:{admin:adminValue},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            $('#adname-tips').show();
+                            $('#regname').addClass('has-error');
+                            $('#regname #adname-tips').html('用户名被占用');
+                            con_name = 0;
+                        }else{
+                            $('#adname-tips').hide();
+                            $('#regname').removeClass('has-error');
+                            con_name = 1;
+                        }
+                    }
+                });
+            }
+        })
+    // }
+    // 验证用户名
+    // 验证密码
+    // function fun_reg_pws(){
+        $('#psw1').bind('input propertychange', function() {
+            var psw = $(this).val();
+            var matchPsw = psw.match(regPsw);
+
+            if (!matchPsw) {
+                $('#regpsw1').addClass('has-error');
+                $('#psw-tips1').show();
+                $('#psw-tips1').html("6-15位大小写字母及'_'");
+                con_psw1 = 0;
+                // console.log(con_psw1);
+            }else{
+                $('#psw-tips1').hide();
+                $('#regpsw1').removeClass('has-error');
+                con_psw1 = 1;
+                // console.log(con_psw1);
+                // $('#regpsw #psw-tips').html('密码过短');
+            }
+                
+        })
+        $('#psw2').bind('input propertychange', function() {
+            var psw1 = $('#psw1').val();
+            var psw2 = $(this).val();
+            if(psw2 != psw1){
+                $('#psw-tips2').show();
+                $('#regpsw2').addClass('has-error');
+                $('#psw-tips2').html('两次输入不一致');
+                con_psw2 = 0;
+                // $('#regname #admin-tips').html('用户名被占用');
+            }else {
+                $('#psw-tips2').hide();
+                $('#regpsw2').removeClass('has-error');
+                con_psw2 = 1;
+            }
+        })
+    // }
+    $('#submitbtn').on('click',function(){
+        if(con_email && con_name && con_psw1 && con_psw2){
+            $('.form-add-admin').submit();
+            return true;
+        }else {
+            alert('填写有误！')
+            return false;
+        }
+    })
+})
+</script>
+</body>
+</html>

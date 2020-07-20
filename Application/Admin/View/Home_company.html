@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>首页行业图片列表页 - {$sys.webname}后台管理</title>
+
+  <!--common-->
+  <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+  <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <include file="Index/sidebar"/>
+    
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <!-- header section start-->
+        <include file="Index/header"/>
+        
+        <!-- header section end-->
+		<div class="page-heading">
+            <h3>
+                首页行业图片列表页
+            </h3>
+            <ul class="breadcrumb">
+            	<li>
+                    <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                </li>
+                
+                <li class="active"> 首页行业图片列表页 </li>
+            </ul>
+            
+        </div> 		
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+			
+<div class="col-md-12" style="margin-bottom:20px;">
+    <a href="{:U('Home/addcompany')}" class="btn btn-success">新增</a>
+
+</div>
+			<div class="row">
+    			<div class="col-sm-12">
+		          <div class="panel">
+		            <div class="panel-heading">
+		              行业图片列表
+		              <span class="tools pull-right">
+		              <a class="fa fa-chevron-down" href="javascript:;"></a>
+		              </span>
+		            </div>
+
+		            <div class="panel-body">
+					<table class="table  table-hover general-table">
+					    <thead>
+					        <tr>
+					            <!-- <th><input type="checkbox" name="" id="control"></th> -->
+					            <th>ID</th>
+					            <th>图片</th>
+					            <th>操作管理</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					    <foreach name="projD" item='vad' key='vk'>
+					        <tr>
+					           <!-- <td><input type="checkbox" name="id" value="{$vad.aid}"></td> -->
+					           <td>{$vk+1}</td>
+                               <td><img src="__ROOT__{$vad.picurl}" alt="" width="200px"></td>
+					           <td>
+					            <a href="__URL__/editcompany/id/{$vad.id}" title="编辑"><img src="__PUBLIC__/asource/images/icons/edit.png" alt="" width="20px"/></a>
+					            <a title="删除" onclick="if(confirm('确认要删除吗?')){location.href = '{:U("Home/delcompany",array("id"=>$vad["id"]))}';}"><img src="__PUBLIC__/asource/images/icons/del.png" alt="" width="20px"/></a>
+					            </td>
+					        </tr>
+					    </foreach>
+					    </tbody>
+					</table>
+					<!-- <div class="col-md-12">
+						<button class="btn btn-default" type="button" id="all">全选  </button>
+						<button class="btn btn-default" type="button" id="not">反选  </button>
+						<button class="btn btn-default" type="button" id="allnot">全不选 </button>
+						<button class="btn btn-warning" type="button" id="set_top" title="一键置顶">一键置顶  </button> 
+						<button class="btn btn-primary" type="button" id="unset_top" title="取消置顶">取消置顶  </button> 
+					</div> -->
+
+<style>
+	.pagination .current{
+        background-color: #65CEA7;
+        color: #fff;
+    }
+</style>
+					{$page}
+
+		            </div>
+		          </div>
+		        </div>
+		    </div>
+
+    	</div>
+        <!--body wrapper end-->
+        
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">批量修改</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" role="form" action="{:U('Art/set_modify')}" method="post" id="modify_form">
+
+
+                    <div class="form-group">
+		                <label class="col-sm-2 control-label">所属栏目</label>
+		                <div class="col-sm-5">
+					        <select class="form-control" name="acid">
+					        	<option value="">请选择栏目</option>
+					            <foreach name="Cate" item="vo" key="k">
+					              <option value="{$vo.acid}"><?php echo str_repeat("—",$vo['level']-1); ?> 〉{$vo.acname}</option>
+					            </foreach>
+					        </select>
+						</div>
+		            </div>
+
+                	<div class="form-group">
+						<label class="col-sm-2 control-label">推荐情况</label>
+						<div class="col-sm-10">
+							<label class="checkbox-inline">
+						        <input type="checkbox" name="is_recom" value="1">推荐(新闻中心轮播)
+						    </label>   
+							<label class="checkbox-inline">
+						        <input type="checkbox" name="is_hot" value="1">热门(新闻最新栏目)
+						    </label>
+						    <label class="checkbox-inline">
+						        <input type="checkbox" name="is_top" value="1">置顶(首页头条新闻)
+						    </label>
+						</div>
+					</div>
+
+		            <input type="hidden" name="artid" id="artid">
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-primary" id="modify_btn">修改</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+        <!--footer section start-->
+        <include file="Index/footer"/>
+
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+<script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+
+
+<!--common scripts for all pages-->
+<script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+<script>
+	$(function(){
+		// 批量修改
+		$('#allset').click(function(){
+			var set_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					set_arr += $(this).val() + ",";
+			});
+			if(set_arr.length > 0) { 	//如果获取到
+        		set_arr = set_arr.substring(0, set_arr.length - 1);
+        		$('#artid').val(set_arr);
+        		$('#myModal-1').modal('show');
+        		$('#modify_btn').click(function(){
+        			$('#modify_form').submit();
+        		})
+        	}else {
+        		alert('请选择您要修改的文章！');
+        	}
+		})
+		// 置顶
+		$('#set_top').click(function(){
+			var top_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					top_arr += $(this).val() + ",";
+			});
+			if(top_arr.length > 0) { 	//如果获取到
+        		top_arr = top_arr.substring(0, top_arr.length - 1);
+        		
+        		// console.log(top_arr);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/set_top')}",
+                    data:{id:top_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('置顶成功！'); 
+                        }else{
+                            alert('置顶失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要置顶的文章！');
+        	}
+		});
+		// 取消置顶
+		$('#unset_top').click(function(){
+			var top_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					top_arr += $(this).val() + ",";
+			});
+			if(top_arr.length > 0) { 	//如果获取到
+        		top_arr = top_arr.substring(0, top_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/unset_top')}",
+                    data:{id:top_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('取消置顶成功！'); 
+                        }else{
+                            alert('取消置顶失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要取消置顶的文章！');
+        	}
+		});
+		// 推荐
+		$('#set_recom').click(function(){
+			var recom_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					recom_arr += $(this).val() + ",";
+			});
+			if(recom_arr.length > 0) { 	//如果获取到
+        		recom_arr = recom_arr.substring(0, recom_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/set_recom')}",
+                    data:{id:recom_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('推荐成功！'); 
+                        }else{
+                            alert('推荐失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要推荐的文章！');
+        	}
+		});
+		// 取消推荐
+		$('#unset_recom').click(function(){
+			var recom_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					recom_arr += $(this).val() + ",";
+			});
+			if(recom_arr.length > 0) { 	//如果获取到
+        		recom_arr = recom_arr.substring(0, recom_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/unset_recom')}",
+                    data:{id:recom_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('取消推荐成功！'); 
+                        }else{
+                            alert('取消推荐失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要推荐的文章！');
+        	}
+		});
+		// 热门
+		$('#set_hot').click(function(){
+			var hot_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					hot_arr += $(this).val() + ",";
+			});
+			if(hot_arr.length > 0) { 	//如果获取到
+        		hot_arr = hot_arr.substring(0, hot_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/set_hot')}",
+                    data:{id:hot_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('设置热门成功！'); 
+                        }else{
+                            alert('设置热门失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要设置热门的文章！');
+        	}
+		});
+		// 取消热门
+		$('#unset_hot').click(function(){
+			var hot_arr = '';
+			$('tbody input[name=id]').each(function(){
+				if($(this).attr("checked"))
+					hot_arr += $(this).val() + ",";
+			});
+			if(hot_arr.length > 0) { 	//如果获取到
+        		hot_arr = hot_arr.substring(0, hot_arr.length - 1);
+        		$.ajax({
+                    type:"post",
+                    url:"{:U('Art/unset_hot')}",
+                    data:{id:hot_arr},
+                    dataType:'text',
+                    success:function(res){
+                        // console.log(res);
+                        if(res == 1){
+                            window.location.reload();
+                            alert('取消热门成功！'); 
+                        }else{
+                            alert('取消热门失败！');
+                        }
+                    }
+                });
+        	}else {
+        		alert('请选择您要取消热门的文章！');
+        	}
+		});		
+	})
+</script>
+
+<script>
+	$(function(){
+			
+			$("#all").click(function(){
+				$("tbody :input[type='checkbox']").attr("checked",true);
+			})
+			$("#not").click(function(){
+				
+				$("tbody :input[type='checkbox']").each(function(k,vo){
+					if($(vo).attr("checked")){
+						$(vo).attr("checked",false);
+					}else{
+						$(vo).attr("checked",true);
+					}
+				})
+			})
+			$("#allnot").click(function(){
+				$("tbody :input[type='checkbox']").attr("checked",false);
+			})
+
+			$("#control").click(function(){
+				if($(this).attr("checked")){
+					$(":input[type='checkbox']").attr("checked",true);
+				}else{
+					$(":input[type='checkbox']").attr("checked",false);
+				}
+			})
+
+				
+			
+		})
+</script>
+</body>
+</html>

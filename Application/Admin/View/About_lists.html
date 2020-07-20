@@ -1,0 +1,147 @@
+    <!DOCTYPE html>
+    <html lang="zh-cn">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+      <meta name="description" content="">
+      <meta name="author" content="ThemeBucket">
+      <link rel="shortcut icon" href="#" type="image/png">
+
+      <title>自定义关于我们页面 - {$sys.webname}后台管理</title>
+
+      <!--common-->
+      <link href="__PUBLIC__/asource/css/style.css" rel="stylesheet">
+      <link href="__PUBLIC__/asource/css/style-responsive.css" rel="stylesheet">
+
+
+
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+    <body class="sticky-header">
+
+    <section>
+        <!-- left side start-->
+        <include file="Index/sidebar"/>
+        
+        <!-- left side end-->
+
+        <!-- main content start-->
+        <div class="main-content" >
+            <!-- header section start-->
+            <include file="Index/header"/>
+            
+            <!-- header section end-->
+    		<div class="page-heading">
+                <h3>
+                    自定义关于我们页面
+                </h3>
+                <ul class="breadcrumb">
+                	<li>
+                        <a href="{:U('Index/index')}">{$sys.webname} - 后台主页</a>
+                    </li>
+                    
+                    <li class="active"> 自定义关于我们页面 </li>
+                </ul>
+                
+            </div> 		
+
+            <!--body wrapper start-->
+            <div class="wrapper">
+    			
+            <div class="col-md-12" style="margin-bottom:20px;">
+                <a href="{:U('about/listsadd')}" class="btn btn-success">新增</a>
+
+            </div>
+    			<div class="row">
+        			<div class="col-sm-12">
+    		          <div class="panel">
+    		            <div class="panel-heading">
+    		              自定义关于我们页面
+    		              <span class="tools pull-right">
+    		              <a class="fa fa-chevron-down" href="javascript:;"></a>
+    		              </span>
+    		            </div>
+
+    		            <div class="panel-body">
+    					<table class="table  table-hover general-table">
+    					    <thead>
+    					        <tr>
+    					            <!-- <th><input type="checkbox" name="" id="control"></th> -->
+    					            <th>ID</th>
+                                    <th>标题</th>
+    					            <!-- <th>内容</th> -->
+    					            <th>操作管理</th>
+    					        </tr>
+    					    </thead>
+    					    <tbody>
+    					    <foreach name="projD" item='vad' key='vk'>
+    					        <tr>
+    					           <!-- <td><input type="checkbox" name="id" value="{$vad.aid}"></td> -->
+    					           <td>{$vk+1}</td>
+                                    <td>{$vad.pic_title}</td>
+                                    <!-- <td>{$vad.pic_content}</td> -->
+    					           <td>
+    					            <a href="__URL__/listsedit/id/{$vad.id}" title="编辑"><img src="__PUBLIC__/asource/images/icons/edit.png" alt="" width="20px"/></a>
+    					            <a title="删除" onclick="if(confirm('确认要删除吗?')){location.href = '{:U("about/introdel",array("id"=>$vad["id"]))}';}"><img src="__PUBLIC__/asource/images/icons/del.png" alt="" width="20px"/></a>
+    					            </td>
+    					        </tr>
+    					    </foreach>
+    					    </tbody>
+    					</table>
+    					<!-- <div class="col-md-12">
+    						<button class="btn btn-default" type="button" id="all">全选  </button>
+    						<button class="btn btn-default" type="button" id="not">反选  </button>
+    						<button class="btn btn-default" type="button" id="allnot">全不选 </button>
+    						<button class="btn btn-warning" type="button" id="set_top" title="一键置顶">一键置顶  </button> 
+    						<button class="btn btn-primary" type="button" id="unset_top" title="取消置顶">取消置顶  </button> 
+    					</div> -->
+
+    <style>
+    	.pagination .current{
+            background-color: #65CEA7;
+            color: #fff;
+        }
+    </style>
+    					{$page}
+
+    		            </div>
+    		          </div>
+    		        </div>
+    		    </div>
+
+        	</div>
+            <!--body wrapper end-->
+            
+
+            <!--footer section start-->
+            <include file="Index/footer"/>
+
+            <!--footer section end-->
+
+
+        </div>
+        <!-- main content end-->
+    </section>
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="__PUBLIC__/asource/js/jquery-1.10.2.min.js"></script>
+    <script src="__PUBLIC__/asource/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="__PUBLIC__/asource/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="__PUBLIC__/asource/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/asource/js/modernizr.min.js"></script>
+    <script src="__PUBLIC__/asource/js/jquery.nicescroll.js"></script>
+
+
+
+    <!--common scripts for all pages-->
+    <script src="__PUBLIC__/asource/js/scripts.js"></script>
+
+    </body>
+    </html>
