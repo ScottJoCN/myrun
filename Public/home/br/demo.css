@@ -1,0 +1,2 @@
+.swiper-container{display:flex;justify-content:center;align-items:center;background-color:#2d2d2d;height:90vh}
+.swiper-item>img{width:inherit;height:inherit;object-fit:cover}

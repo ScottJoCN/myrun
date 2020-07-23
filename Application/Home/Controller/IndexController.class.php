@@ -17,6 +17,10 @@ class IndexController extends BaseController {
         $this->assign('projD',$projD);
         $this->display();
     }
+    public function product(){
+
+        $this->display();
+    }
     public function contact(){
         $this->display();
     }
