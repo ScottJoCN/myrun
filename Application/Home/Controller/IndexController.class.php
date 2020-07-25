@@ -21,17 +21,21 @@ class IndexController extends BaseController {
 
         $this->display();
     }
+    public function kf(){
+        $this->display();
+    }
+    public function about(){
+        $this->display();
+    }
     public function contact(){
         $this->display();
     }
     public function booking(){
         $booking = M('msgboard');
         if(IS_POST){
-            $data['title'] = I('post.mytitle');
             $data['myname'] = I('post.myname');
-            $data['tel'] = I('post.mytel');
-            $data['uemail'] = I('post.myemail');
-            $data['contents'] = I('post.mymsg');
+            $data['mytel'] = I('post.mytel');
+            $data['myemail'] = I('post.myemail');
             $data['adtime']=time();
             $insert = $booking->add($data);
             if($insert){

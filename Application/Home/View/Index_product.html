@@ -22,6 +22,24 @@
     <link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="__PUBLIC__/home/br/banner.js"></script>
     <script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        if(window.location.toString().indexOf('pref=padindex') != -1){
+          }else{
+            if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){  
+                if(window.location.href.indexOf("?mobile")<0){
+              try{
+                if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+                  window.location.href="http://{$sys.domain}/m.php/Index/product.html";
+                }else if(/iPad/i.test(navigator.userAgent)){
+                          window.location.href="http://{$sys.domain}/m.php/Index/product.html"
+                }else{
+                  window.location.href="http://{$sys.domain}/index.php/Index/product.html"
+                }
+              }catch(e){}
+            }
+            }
+          }
+    </script>
 </head>
 <body>
 
@@ -46,6 +64,8 @@
 
 </div>
 <h1 class="" style="text-align: center;line-height: 50px;padding: 30px;">xxxxxxxxxxxxxx</h1>
+
+<!-- 产品介绍 -->
 <style>
     .product-content h2{
         padding-top: 30px;
@@ -57,7 +77,8 @@
         margin: 50px 80px;
     }
     .product-content .product-list{
-        border:1px solid red;
+        /*border:1px solid red;*/
+        /*height: 700px;*/
 
     }
     .product-content .product-list-content{
@@ -71,6 +92,7 @@
         text-decoration:none;
         padding-top:30px;
         padding-bottom: 30px;
+        height: 400px;
     }
 </style>
 <div class="product-content container">
@@ -101,15 +123,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div style="clear: both;"></div> -->
         <div class="col-xs-6 col-md-6 product-list" style="">
             <div class="product-list-div">
                 <h2>xx版本</h2>
                 <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
                     xxxxxxxxx<br/>
                     xxxxxxxxx<br/>
                     xxxxxxxxx<br/>
@@ -134,111 +153,176 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
 
+        <!-- <div style="clear: both;"></div> -->
+        <div class="col-xs-6 col-md-6 product-list" style="">
+            <div class="product-list-div">
+                <h2>xx版本</h2>
+                <div class="product-list-content">
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-6 product-list" style="">
+            <div class="product-list-div">
+                <h2>xx版本</h2>
+                <div class="product-list-content">
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                    xxxxxxxxx<br/>
+                </div>
+            </div>
+        </div>
+        <!-- <div style="clear: both;"></div> -->
     </div>
 </div>
+<div style="clear: both;"></div>
+<!-- 服务优势 -->
+
+<style>
+
+    .service-content{
+        background-color: rgb(242, 242, 242);
+        width: 100%;
+    }
+    .service-content h2{
+        text-align: center;
+        font-weight:400; font-size:36px; color:rgba(16, 16, 16, 1); font-style:normal; letter-spacing:0px; line-height:54px; text-decoration:none;
+    }
+    .service-content .service-list{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .service-content .service-pic{
+        text-align: center;
+    }
+    .service-content .service-title{
+        font-weight:400; font-size:18px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:29px; text-decoration:none;
+    }
+    .service-content .service-des{
+        margin-top: 20px;
+        font-weight:400; font-size:14px; color:rgb(174, 174, 174); font-style:normal; letter-spacing:0px; line-height:26px; text-decoration:none;
+        height: 110px;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+    }
+
+</style>
+<div class="service-content container">
+    <div class="container">
+        
+    
+        <div class="row">
+            <h2>服务优势</h2>
 
 
-
-
-
-
-
-
-
-
-<div class="yxt-footer footer ">
-    <div class="c_container1200">
-        <div class="sitebox clearfix">
-            <ul class="site-sort-box pull-left">
-                <li>
-                    <div class="site-title">商务合作</div>
-                    <ul class="site-list">
-                        <li><a href="/coop/content" target="_self">内容合作</a></li>
-                        <li><a href="/coop/teacher" target="_self">师资合作</a></li>
-                        <li><a href="/coop/channel" target="_self">渠道合作</a></li>
-                        <li><a href="/coop/market" target="_self">市场合作</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="site-title">关于我们</div>
-                    <ul class="site-list">
-                        <li><a href="/introduction" target="_self">公司简介</a></li>
-                        <li><a href="/news" target="_self">新闻动态</a></li>
-                        <li><a href="/joinus" target="_self">加入我们</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="site-title">服务支持</div>
-                    <ul class="site-list">
-
-                        <li><a href="/support/download" target="_self">下载中心</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="site-title">法律声明</div>
-                    <ul class="site-list">
-                        <li><a href="/declare/terms" target="_self">服务条款</a></li>
-                        <li><a href="/declare/privacy" target="_self">隐私声明</a></li>
-                        <li><a href="/declare/zscq" target="_self">知识产权维权</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="site-title">关注我们</div>
-                    <ul class="site-list">
-                        <li><a href="javascript:showWechatCode()" target="_self">微信公众号</a></li>
-                        <li><a href="https://s.weibo.com/weibo/%25E4%25BA%2591%25E5%25AD%25A6%25E5%25A0%2582?topnav=1&wvr=6&b=1#_loginLayer_1550632103969" target="_blank">新浪微博</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!--微信公众号-->
-            <div class="wechatcode-mask" id="wechatcodeMask" onclick="hideWechatCode()"></div>
-            <div class="wechatcode" id="wechatcodeBox">
-                <div class="wechat-title font-size-20 p15">云学堂官方微信 <i class="ico ico-grey-close pull-right hand" onclick="hideWechatCode()"></i></div>
-                <div class="mt35 codebox">
-                    <img src="https://picobd.yxt.com/orgs/yxt_malladmin/mvcpic/image/202004/9320c8fbb7574c058c5ffcefad9a255f.jpg" width="224" height="224" alt="" />
+            <div class="col-xs-6 col-md-6 service-list" style="">
+                <div class="col-xs-4 col-md-4 service-pic">
+                    <img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle">
+                </div>
+                <div class="col-xs-8 col-md-8 service-r">
+                    <div class="service-title">技术运维支持</div>
+                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
                 </div>
             </div>
-            <!--微信公众号 end-->
-            <div class="contact text-right pr pull-right">
-                <span class="font-size-35">400-928-6900</span><br>
-                <span class="text-color9 font-size-12">江苏省苏州市高新区竹园路209号2号楼20层</span><br>
-                <span class="text-color9 font-size-12">周一至周日9:00-18:00 （仅收市话费）</span><br>
-                <span class="text-color9 font-size-12">投诉邮箱：service-support@yxt.com</span><br>
-                <span class="btn btn-contact mt10 hand" onclick="OpenLeyu()">在线帮助</span>
+            <div class="col-xs-6 col-md-6 service-list" style="">
+                <div class="col-xs-4 col-md-4 service-pic">
+                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
+                </div>
+                <div class="col-xs-8 col-md-8 service-r">
+                    <div class="service-title">技术运维支持</div>
+                    <div class="service-des">平台设施和运的平台设运维团队时刻待命为你提供尽可能的</div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="copyright clearfix font-size-12 text-color6">
-        <div class="c_container1200">
-            Copyright © 2020 yxt.com All rights reserved 江苏云学堂网络科技有限公司 版权所有 <a target="_blank" href="http://www.beian.miit.gov.cn/publish/query/indexFirst.action">苏ICP备14034064号</a> <span style="color:#ddd">|</span> 增值电信业务经营许可证：苏B2-20180039
+            <div class="col-xs-6 col-md-6 service-list" style="">
+                <div class="col-xs-4 col-md-4 service-pic">
+                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
+                </div>
+                <div class="col-xs-8 col-md-8 service-r">
+                    <div class="service-title">技术运维支持</div>
+                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-6 service-list" style="">
+                <div class="col-xs-4 col-md-4 service-pic">
+                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
+                </div>
+                <div class="col-xs-8 col-md-8 service-r">
+                    <div class="service-title">技术运维支持</div>
+                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
+                </div>
+            </div>
+
 
         </div>
     </div>
 </div>
+<style>
+    .dust{
+
+    }
+    .dust h2{
+        text-align: center;
+    }
+    .dust-content{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .dust-list{
+        float: left;
+        width: 20%;
+        margin:0 auto;
+        text-align: center;
+    }
+    .dust .dust-pic{
+        margin-top: 20px;
+    }
+    .dust .dust-title{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+</style>
+<!-- 适用行业 -->
+<div class="dust">
+    <h2>适用行业</h2>
+    <div class="dust-content">
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        <div class="dust-list">
+            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
+            <div class="dust-title">餐饮</div>
+        </div>
+        
+    </div>
+</div>
+<div style="clear: both;"></div>
+
+
+<include file="Index/footer"/>
 
 
 
