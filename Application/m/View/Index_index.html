@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,135 +14,112 @@
     <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
     <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
 
-<!-- isite.baidu.com Baidu tongji analytics -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-var hm = document.createElement("script");
-hm.src = "https://hm.baidu.com/hm.js?285dfda7a3c615bbac21c09fd4d63a31";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(hm, s);
-})();
-</script>
 </head>
 <body onload="setSize();">
-	
-
 <include file="Index/header"/>
-    
-<!-- banner开始 -->
-<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
-<div class="banner-box" id="userBlog">
-    <div class="flexslider">
-        <ul class="slides">
-                <li class="slides-1">
-                    <img class="w-100" src="__PUBLIC__/m/images/banner-2.png" height="300"/>
-                </li>              
-        </ul>
-    </div>
+
+
+<style>
+    #carousel-example-generic .carousel-inner .item:active{
+        height: 180px;
+    }
+</style>
+<!-- 轮播 -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox" style="height: 180px;">
+    <foreach name="top_pic" item="vt">
+        <div class="item" style="height: 180px;">
+          <img src="__ROOT__{$vt.picurl}" style="height: 190px;width: 100%">
+        </div>
+    </foreach>
+  </div>
+    <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="height: 180px;">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height: 180px;">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-
-
-
-<div class="addWrap">
-    <div class="swipe" id="mySwipe">
-        <div class="swipe-wrap">
-            <div>
-                <a href="javascript:;"><img class="img-responsive" src="__PUBLIC__/m/images/banner-2.png"  /></a>
-                
-            </div>
-            
-        </div>
-    </div>
-
-    <ul id="position">
-        <li class="cur"></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-<!--/addWrap-->
-<script type="text/javascript" src="__PUBLIC__/m/js/hhSwipe.js"></script>
-<script type="text/javascript">
-    var bullets = document.getElementById('position').getElementsByTagName('li');
-
-    var banner = Swipe(document.getElementById('mySwipe'), {
-        auto: 4000,
-        continuous: true,
-        disableScroll: false,
-        callback: function (pos) {
-            var i = bullets.length;
-            while (i--) {
-                bullets[i].className = ' ';
-            }
-            bullets[pos].className = 'cur';
-        }
-    })
-</script>
-<div class="content-box">
-    <div class="container">
-        <div class="row">
-        	<div style="width: 100%;text-align: center;">
-				<div style="font-size: 22px;font-weight: bold;letter-spacing:2px;margin-bottom: 1%;margin-top: -6%;margin-bottom: 2%">
-					业务范畴
-				</div>
-				<img src="__PUBLIC__/home/images/bn1.png" alt="" width="30%">
-			</div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_1.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>搜索引擎推广SEM</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_2.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>信息流广告</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_3.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>DSP</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_4.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>搜索引擎优化</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_5.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>舆情监控</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 content-list">
-                <div style="width: 50px;height: 50px;background-color: #2372d6;border-radius:25px;margin:0 auto;"><img src="__PUBLIC__/home/images/icon_6.png" alt="" style="width: 50px;height: 50px;"></div>
-                <p>小程序开发</p>
-            </div>
-        </div>
-
-		<div class="row" style="margin-top: 5%;">
-        	<div style="width: 100%;text-align: center;margin-bottom: 2%">
-				<div style="font-size: 22px;font-weight: bold;letter-spacing:2px;margin-bottom: 1%;margin-top: -6%;">
-					业务优势
-				</div>
-				<img src="__PUBLIC__/home/images/bn1.png" alt="" width="30%">
-			</div>
-			<div style="margin:0 auto;clear: both;width: 70%;">
-	            <div style="width: 100%;float: left;">
-	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_7.png" alt="" style="width: 40px;height: 40px;"></div>
-					<p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">百度KA授权代理商可服务全国</p>
-	            </div>
-	            <div style="width: 100%;float: left;">
-	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_8.png" alt="" style="width: 40px;height: 40px;"></div>
-	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">综合搜索引擎推广和优化精准营销</p>
-	            </div>
-	            <div style="width: 100%;float: left;">
-	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_10.png" alt="" style="width: 40px;height: 40px;"></div>
-	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">专业团队提供行业定制化解决方案</p>
-	            </div>
-	            <div style="width: 100%;float: left;">
-	                <div style="float: left;line-height: 40px;"><img src="__PUBLIC__/home/images/icon_9.png" alt="" style="width: 40px;height: 40px;"></div>
-	                <p style="float: left;font-size: 14px;line-height: 40px;margin-left: 2%;">海量优质联盟友媒和渠道</p>
-	            </div>
-            </div>
-        </div>
+<!-- 轮播 -->
+<style>
+    .intro{
         
-    </div>
+        /*border:1px solid red;*/
+    }
+    .intro .intro-container{
+        margin-top: 30px;
+        height: 150px;
+    }
+    .intro .intro-img{
+        width: 49%;
+        /*border: 1px solid red;*/
+        text-align: center;
+        float: left;
+        margin-top:10px;
+
+    }
+    .intro .intro-img .intro-img-c{
+        height: 104px;width: 120px;background-size:100%;background-position:center center;margin:0 auto;
+    }
+    .intro .intro-img .intro-img-c .box1{
+        width:0;
+            border-right: 30px solid transparent;
+            border-top: 52px solid #fff;
+            border-bottom: 52px solid #fff;
+            float: left;
+    }
+    .intro .intro-img .intro-img-c .box2{
+        width: 60px;
+        height: 104px;
+        background-color: transparent;
+        float: left;
+    }
+    .intro .intro-img .intro-img-c .box3{
+        width:0;
+        border-left: 30px solid transparent;
+        border-top: 52px solid #fff;
+        border-bottom: 52px solid #fff;
+        float: left;
+    }
+    .intro .intro-chara{
+        width: 50%;
+        /*border:1px solid red;*/
+        float: left;
+    }
+</style>
+<!-- 介绍 -->
+<div class="intro">
+    <foreach name="intro" item="vint" key="kint">
+        <div class="intro-container">
+            <div class="intro-img">
+                <div class="intro-img-c" style="background-image: url(__ROOT__{$vint.picurl});">
+                    <!-- <img src="__PUBLIC__/home/test/2.png" alt=""> -->
+                    <div class="box1"></div>
+                    <div class="box2"></div>
+                    <div class="box3"></div>
+                    <!-- <div style="clear: both;"></div> -->
+                </div>
+            </div>
+            <div class="intro-chara">
+                <div class="intro-title"><h4>{$vint.pic_title}</h4></div>
+                <div class="intro-content">{$vint.pic_content}</div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </foreach>
 </div>
+
 <include file="Index/footer"/>
 
 
@@ -169,6 +146,13 @@ s.parentNode.insertBefore(hm, s);
             $(".nav_home").addClass("active");
         });
     </script>   
+    <script>
+    $('#carousel-example-generic ol li:first').addClass('active');
+    $('#carousel-example-generic .carousel-inner .item:first').addClass('active');
+    // $('.carousel').carousel({
+    //   interval: 2000
+    // })
+</script>
 
 </body>
 </html>

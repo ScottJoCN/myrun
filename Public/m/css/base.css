@@ -129,8 +129,8 @@ ul{
         display:none;
     }
    .clearfix .logo .left-f img{
-        width:65px;
-        height:38px;
+        /*width:65px;*/
+        height:50px;
    }
         .navbar-header .logo{
         display:block;

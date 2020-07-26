@@ -36,21 +36,10 @@ class SystemController extends BaseController {
         //     // 上传错误提示错误信息        
         //     $this->error($upload->getError());   
         // }
-        if($info['logo'] !=''){
-            $data['weblogo'] = '/Uploads'.$info["logo"]["savepath"].$info["logo"]["savename"];
+        if($info['weblogo'] !=''){
+            $data['weblogo'] = '/Uploads'.$info["weblogo"]["savepath"].$info["weblogo"]["savename"];
         }
-        if($info['art'] !=''){
-            $data['art_pic'] = '/Uploads'.$info["art"]["savepath"].$info["art"]["savename"];
-        }
-        if($info['lp'] !=''){
-            $data['lp_pic'] = '/Uploads'.$info["lp"]["savepath"].$info["lp"]["savename"];
-        }
-        if($info['user'] !=''){
-            $data['user_pic'] = '/Uploads'.$info["user"]["savepath"].$info["user"]["savename"];
-        }
-        if($info['artbg'] !=''){
-            $data['artbg'] = '/Uploads'.$info["artbg"]["savepath"].$info["artbg"]["savename"];
-        }
+
         
 
         $find = $sys->where('id=1')->find();

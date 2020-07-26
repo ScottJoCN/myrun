@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{$sys.webtitle}</title>
+    <title>{$sys.webname}_{$sys.webtitle}</title>
     <meta name="Keywords" content="{$sys.keywords}" />
     <meta name="Description" content="{$sys.description}" />
     <meta charset="utf-8" />
@@ -43,7 +43,7 @@
 
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
-    <a href="/" class="pull-left" style="font-weight:400; font-size:36px; color:rgb(56, 148, 255); font-style:normal; letter-spacing:0px; line-height:54px; text-decoration:none;">{$sys.webname}</a>
+    <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
         <li class=""><a href="{:U('Index/index')}" title="">首页</a></li>
         <li class=""><a href="{:U('Index/product')}" title="">产品介绍</a></li>
@@ -99,7 +99,7 @@
         <h2>{$vsd.pic_title}</h2>
         <div class="about-content">{$vsd.pic_content}</div>
         <div class="about-pic">
-            <img src="__ROOT__/{$vsd.picurl}" alt="">
+            <img src="__ROOT__{$vsd.picurl}" alt="">
         </div>
     </div>
 </foreach>

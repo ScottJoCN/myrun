@@ -43,57 +43,33 @@
 </head>
 <body>
     
-
 <!--header-->
-<!-- <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
-    <a href="/" class="pull-left" style="font-weight:400; font-size:36px; color:rgb(56, 148, 255); font-style:normal; letter-spacing:0px; line-height:54px; text-decoration:none;">{$sys.webname}</a>
+<div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
+    <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
-        <li class="active"><a href="/newhome" title="">首页</a></li>
-        <li class=""><a href="/index" title="">产品介绍</a></li>
-        <li class=""><a href="/lc" title="">定制开发</a></li>
-        <li class=""><a href="/xuanyes" title="">关于我们</a></li>
-    </ul>    
-</div> -->
-<!--header-->
+        <li class="active"><a href="{:U('Index/index')}" title="">首页</a></li>
+        <li class=""><a href="{:U('Index/product')}" title="">产品介绍</a></li>
+        <li class=""><a href="{:U('Index/kf')}" title="">定制开发</a></li>
+        <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
+        <li class="">{$sys.tel}</li>
+        <li class="" style="">
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
+        </li>
+    </ul>
 
-
-
-
-
-
-
-<div class="minor-meun zindex9" id="pro_header">
-    <div class="c_container1200 pr">
-        <h1 class="font-size-18 text-white pull-left font-normal logo-text">{$sys.webname}</h1>
-        <h1 class="logo-img logo-lc pull-left"></h1>
-        <div class="nav-list-container pull-left">
-            <ul class="nav-list nav-lecai clearfix">
-                <li class="active"><a href="{:U('Index/index')}" target="_self">首页</a></li>
-                <li class=""><a href="{:U('Index/product')}" target="_self">产品介绍</a></li>
-                <li class=""><a href="{:U('Index/kf')}" target="_self">定制开发</a></li>
-                <li class=""><a href="{:U('Index/about')}" target="_self">关于我们</a></li>
-            </ul>
-        </div>
-        <div class="nav-aside">
-            <a style="width: 150px;">{$sys.tel}</a>
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);" data-toggle="modal" data-target="#myModal">免费试用</a>
-        </div>
-    </div>
 </div>
-
-
-
-<div class="m-head">
+<!--header-->
+<!-- <div class="m-head">
     <div class="m-head-slider">
         <a href="#"></a>
     </div>
-</div>
-<div class="index-top">
+</div> -->
+<div class="index-top" style="margin-top:0px;">
     <div class="m-carousel slideBox">
     <div class="bd">
     <ul class="m-carousel-list">
         <foreach name="top_pic" item="vtop">
-            <li style="background-image: url(__ROOT__/{$vtop.picurl});background-size:100% 100%;">
+            <li style="background-image: url(__ROOT__{$vtop.picurl});background-size:100% 100%;">
                 <a href="#" data-toggle="modal" data-target="#myModal">
                     <h2 class="c-line-clamp m-carousel-title"></h2>
                     <p class="c-line-clamp m-carousel-note"></p>
@@ -101,13 +77,6 @@
                 </a>
             </li>
         </foreach>
-<!--         <li style="background-image: url(__PUBLIC__/home/br/2.png);">
-            <a href="#" data-toggle="modal" data-target="#myModal">
-                <h2 class="c-line-clamp m-carousel-title"></h2>
-                <p class="c-line-clamp m-carousel-note"></p>
-                <p class="m-carousel-btn">了解更多</p>
-            </a>
-        </li> -->
     </ul>
     </div>
     <div class="c-carousel-dot hd"><span class="active"></span><span></span></div>
@@ -126,6 +95,7 @@
         trigger: "click"
     });
 </script>
+
 <style>
     #mid-left .mid-left-l{
         width: 40%;float: left;height: 380px;padding: 40px;
@@ -303,21 +273,21 @@
                 <div class="use_pics_2">
             </if>
 
-                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
-                <div class="pic2"><img src="__ROOT__/{$vline[1]['picurl']}" alt=""></div>
-                <div class="pic3"><img src="__ROOT__/{$vline[2]['picurl']}" alt=""></div>
+                <div class="pic1"><img src="__ROOT__{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic2"><img src="__ROOT__{$vline[1]['picurl']}" alt=""></div>
+                <div class="pic3"><img src="__ROOT__{$vline[2]['picurl']}" alt=""></div>
             </div>
             <div style="clear: both;"></div>
         </foreach>
         <if condition="count($industry['mod_data']) eq 1">
             <div class="use_pics_4">
-                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic1"><img src="__ROOT__{$vline[0]['picurl']}" alt=""></div>
             </div>
             <div style="clear: both;"></div>
         <elseif condition="count($industry['mod_data']) eq 2" />
             <div class="use_pics_3">
-                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
-                <div class="pic2"><img src="__ROOT__/{$vline[1]['picurl']}" alt=""></div>
+                <div class="pic1"><img src="__ROOT__{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic2"><img src="__ROOT__{$vline[1]['picurl']}" alt=""></div>
             </div>
             <div style="clear: both;"></div>
 
@@ -388,8 +358,8 @@
         <ul>
             <foreach name="they_use" item="vtu">
                 <li>
-                    <div><img src="__ROOT__/{$vtu[0]['picurl']}" /></div>
-                    <div><img src="__ROOT__/{$vtu[1]['picurl']}" /></div>
+                    <div><img src="__ROOT__{$vtu[0]['picurl']}" /></div>
+                    <div><img src="__ROOT__{$vtu[1]['picurl']}" /></div>
                 </li>
             </foreach>
             <!-- <li>
