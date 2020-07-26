@@ -53,7 +53,7 @@
                 </li>
 
                 <li>
-                    <a href="{:U('project/advantage',array('list'=>2,'cla'=>3))}">适用行业列表</a>
+                    <a href="{:U('project/advantage',array('list'=>2,'cla'=>4))}">适用行业列表</a>
                 </li>
                 <li class="active"> 编辑适用行业 </li>
             </ul>
@@ -84,9 +84,9 @@
                   <input type="hidden" name="type" value="8">
                   <div class="form-group">
                     <label class="col-sm-2 control-label">适用行业图片</label>
-                    <div class="col-md-8">
+                    <div class="col-md-3">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                <div class="fileupload-new thumbnail" style="width: 100px; height: 100px;">
                                     <img src="__ROOT__{$pro.picurl}" alt="" />
                                 </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -101,14 +101,16 @@
                                 </div>
                             </div>
                         </div>
+                        <label class="col-sm-2 control-label">100*100</label>
+
                   </div>
-                  <div class="form-group">
+<!--                   <div class="form-group">
                     <label class="col-sm-2 control-label">适用行业内容</label>
                     <div class="col-sm-10">
-                      <!-- <script id="editor" type="text/plain" style="width:100%;height:400px;"></script> -->
+                      <script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
                         <textarea class="form-control" name="pic_content"  id="contents" style="height: 200px;">{$pro.pic_content}</textarea>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="form-group">
                     <input type="hidden" name="id" value="{$pro.id}">

@@ -32,7 +32,7 @@ class HomeController extends BaseController {
 			$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
 			$upload->savePath  =      '/pic/'; // 设置附件上传目录 相对于/Uploads
 			$info   =   $upload->upload();
-			if($info){
+			if($info['picurl']){
 				$data['picurl'] = '/Uploads'.$info["picurl"]["savepath"].$info["picurl"]["savename"];
 			}else{
 				$this->error("请添加图片");
@@ -159,7 +159,7 @@ class HomeController extends BaseController {
 	// 行业
 	public function company(){
 		$where['type'] = 3;
-    	$p_data = $this->get_pic_data($where);
+    	$p_data = $this->get_pic_data($where,1);
     	$this->assign('page',$p_data['show']);
         $this->assign('projD',$p_data['p_data']);
 

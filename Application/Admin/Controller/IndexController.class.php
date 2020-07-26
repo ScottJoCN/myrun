@@ -15,4 +15,18 @@ class IndexController extends BaseController {
     public function sidebar(){
     	$this->display();
     }
+    public function booking(){
+        $msgboard = M('msgboard');
+
+        $count = $msgboard->count();
+        $getpage = $this->getpage($count,15);
+
+        $show = $getpage->show();
+        $p_data = $msgboard->limit($getpage->firstRow.','.$getpage->listRows)->order("id desc")->select();
+        
+        $this->assign('page',$show);
+        $this->assign('booking',$p_data);
+
+        $this->display();
+    }
 }

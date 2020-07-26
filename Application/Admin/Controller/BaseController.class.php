@@ -78,11 +78,16 @@ class BaseController extends Controller{
         }
         
     }
-    public function get_pic_data($where){
+    public function get_pic_data($where,$order){
         $count = $this->pic->where($where)->count();
         $getpage = $this->getpage($count,15);
         $show = $getpage->show();
-        $p_data = $this->pic->where($where)->limit($getpage->firstRow.','.$getpage->listRows)->order("id desc")->select();
+        if($order){
+            $p_data = $this->pic->where($where)->limit($getpage->firstRow.','.$getpage->listRows)->select();
+        }else{
+            $p_data = $this->pic->where($where)->limit($getpage->firstRow.','.$getpage->listRows)->order("id desc")->select();
+        }
+        
         $pic_data['show'] = $show;
         $pic_data['p_data'] = $p_data;
         return $pic_data;

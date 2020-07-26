@@ -60,10 +60,10 @@
 
 </div>
 <!--header-->
-<div class="gailan-first text-white" style="background-image: url(__PUBLIC__/home/br/1.png);height: 200px;">
+<div class="gailan-first text-white" style="background-image: url(__ROOT__{$top_pic.picurl});height: 200px;">
 
 </div>
-<h1 class="" style="text-align: center;line-height: 50px;padding: 30px;">xxxxxxxxxxxxxx</h1>
+<h1 class="" style="text-align: center;line-height: 50px;padding: 30px;">{$top_pic.pic_title}</h1>
 
 <!-- 产品介绍 -->
 <style>
@@ -90,94 +90,23 @@
         letter-spacing:0px;
         line-height:50px;
         text-decoration:none;
-        padding-top:30px;
-        padding-bottom: 30px;
+        padding:30px 70px;
         height: 400px;
     }
 </style>
 <div class="product-content container">
     <div class="row">
-
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-
-
+        <foreach name="introduct_pic" item="vip">
+            <div class="col-xs-6 col-md-6 product-list" style="">
+                <div class="product-list-div">
+                    <h2>{$vip.pic_title}</h2>
+                    <div class="product-list-content">
+                        {$vip.pic_content}
+                    </div>
                 </div>
             </div>
-        </div>
+        </foreach>
 
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div style="clear: both;"></div> -->
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div style="clear: both;"></div> -->
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-6 product-list" style="">
-            <div class="product-list-div">
-                <h2>xx版本</h2>
-                <div class="product-list-content">
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                    xxxxxxxxx<br/>
-                </div>
-            </div>
-        </div>
         <!-- <div style="clear: both;"></div> -->
     </div>
 </div>
@@ -220,43 +149,18 @@
         <div class="row">
             <h2>服务优势</h2>
 
+            <foreach name="service_pic" item="vsp">
+                <div class="col-xs-6 col-md-6 service-list" style="">
+                    <div class="col-xs-4 col-md-4 service-pic">
+                        <img src="__ROOT__/{$vsp.picurl}" alt="" width="100" height="100" class="img-circle">
+                    </div>
+                    <div class="col-xs-8 col-md-8 service-r">
+                        <div class="service-title">{$vsp.pic_title}</div>
+                        <div class="service-des">{$vsp.pic_content}</div>
+                    </div>
+                </div>
+            </foreach>
 
-            <div class="col-xs-6 col-md-6 service-list" style="">
-                <div class="col-xs-4 col-md-4 service-pic">
-                    <img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle">
-                </div>
-                <div class="col-xs-8 col-md-8 service-r">
-                    <div class="service-title">技术运维支持</div>
-                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-6 service-list" style="">
-                <div class="col-xs-4 col-md-4 service-pic">
-                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
-                </div>
-                <div class="col-xs-8 col-md-8 service-r">
-                    <div class="service-title">技术运维支持</div>
-                    <div class="service-des">平台设施和运的平台设运维团队时刻待命为你提供尽可能的</div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-6 service-list" style="">
-                <div class="col-xs-4 col-md-4 service-pic">
-                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
-                </div>
-                <div class="col-xs-8 col-md-8 service-r">
-                    <div class="service-title">技术运维支持</div>
-                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-6 service-list" style="">
-                <div class="col-xs-4 col-md-4 service-pic">
-                    <img src="__PUBLIC__/home/br/icon1.png" alt="" width="100" height="100" class="img-circle">
-                </div>
-                <div class="col-xs-8 col-md-8 service-r">
-                    <div class="service-title">技术运维支持</div>
-                    <div class="service-des">平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的平台设施和运维团队时刻待命为你提供尽可能的</div>
-                </div>
-            </div>
 
 
         </div>
@@ -264,7 +168,7 @@
 </div>
 <style>
     .dust{
-
+        margin-top:50px;
     }
     .dust h2{
         text-align: center;
@@ -292,30 +196,12 @@
 <div class="dust">
     <h2>适用行业</h2>
     <div class="dust-content">
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
-        <div class="dust-list">
-            <div class="dust-pic"><img src="__PUBLIC__/home/br/1.png" alt="" width="100" height="100" class="img-circle"></div>
-            <div class="dust-title">餐饮</div>
-        </div>
+        <foreach name="company_pic" item="vcp">
+            <div class="dust-list">
+                <div class="dust-pic"><img src="__ROOT__{$vcp.picurl}" alt="" width="100" height="100" class="img-circle"></div>
+                <div class="dust-title">{$vcp.pic_title}</div>
+            </div>
+        </foreach>
         
     </div>
 </div>
@@ -323,12 +209,6 @@
 
 
 <include file="Index/footer"/>
-
-
-
-
-
-
 
 
 

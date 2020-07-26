@@ -92,20 +92,22 @@
     <div class="m-carousel slideBox">
     <div class="bd">
     <ul class="m-carousel-list">
-        <li style="background-image: url(__PUBLIC__/home/br/1.png);">
+        <foreach name="top_pic" item="vtop">
+            <li style="background-image: url(__ROOT__/{$vtop.picurl});background-size:100% 100%;">
+                <a href="#" data-toggle="modal" data-target="#myModal">
+                    <h2 class="c-line-clamp m-carousel-title"></h2>
+                    <p class="c-line-clamp m-carousel-note"></p>
+                    <p class="m-carousel-btn">了解更多</p>
+                </a>
+            </li>
+        </foreach>
+<!--         <li style="background-image: url(__PUBLIC__/home/br/2.png);">
             <a href="#" data-toggle="modal" data-target="#myModal">
                 <h2 class="c-line-clamp m-carousel-title"></h2>
                 <p class="c-line-clamp m-carousel-note"></p>
                 <p class="m-carousel-btn">了解更多</p>
             </a>
-        </li>
-        <li style="background-image: url(__PUBLIC__/home/br/2.png);">
-            <a href="#" data-toggle="modal" data-target="#myModal">
-                <h2 class="c-line-clamp m-carousel-title"></h2>
-                <p class="c-line-clamp m-carousel-note"></p>
-                <p class="m-carousel-btn">了解更多</p>
-            </a>
-        </li>
+        </li> -->
     </ul>
     </div>
     <div class="c-carousel-dot hd"><span class="active"></span><span></span></div>
@@ -154,56 +156,57 @@
 </style>
 <!-- 公司介绍 -->
 <div id="mid" >
-    <!-- 右图大tab -->
-    <div id="mid-left">
-        <!-- tab左 -->
-        <div class="mid-left-l">
-            <!-- title -->
-            <h2 class="mid-title">xxxxx</h2>
-            <!-- 内容 -->
-            <div class="mid-contents">
-                xxxxx<br/>
-                xxxxx<br/>
-                xxxxx<br/>
+
+    <foreach name="intro" item="vint" key="kint">
+        <if condition="$kint % 2 eq 0">
+            <!-- 右图大tab -->
+            <div id="mid-left">
+                <!-- tab左 -->
+                <div class="mid-left-l">
+                    <!-- title -->
+                    <h2 class="mid-title">{$vint.pic_title}</h2>
+                    <!-- 内容 -->
+                    <div class="mid-contents">
+                        {$vint.pic_content}
+                    </div>
+                    <!-- 按钮 -->
+                    <div>
+                        <div href="" class="mid-btn" target="_blank" data-toggle="modal" data-target="#myModal">了解更多</div>
+                    </div>
+                </div>
+                <!-- tab右 -->
+                <div style="" class="mid-left-r">
+                    <div style="margin:0 auto;text-align: center;">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;height: 300px;">
+                    </div>
+                </div>
             </div>
-            <!-- 按钮 -->
-            <div>
-                <div href="" class="mid-btn" target="_blank" data-toggle="modal" data-target="#myModal">了解更多</div>
+            <div style="clear: both;"></div>
+        <else/>
+            <div id="mid-right">
+                <!-- tab左 -->
+                <div style="" class="mid-right-l">
+                    <!-- title -->
+                    <h2 style="" class="mid-title">{$vint.pic_title}</h2>
+                    <!-- 内容 -->
+                    <div style="" class="mid-contents">
+                        {$vint.pic_content}
+                    </div>
+                    <!-- 按钮 -->
+                    <div>
+                        <div href="" class="mid-btn" target="_blank" style="" data-toggle="modal" data-target="#myModal">了解更多</div>
+                    </div>
+                </div>
+                <!-- tab右 -->
+                <div style="" class="mid-right-r">
+                    <div style="margin:0 auto;">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;height: 300px;">
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- tab右 -->
-        <div style="" class="mid-left-r">
-            <div style="margin:0 auto;text-align: center;">
-                <img src="__PUBLIC__/home/test/1.png" alt="" style="width: 70%;height: 300px;">
-            </div>
-        </div>
-    </div>
-    <div style="clear: both;"></div>
-    
-    <div id="mid-right">
-        <!-- tab左 -->
-        <div style="" class="mid-right-l">
-            <!-- title -->
-            <h2 style="" class="mid-title">xxxxx</h2>
-            <!-- 内容 -->
-            <div style="" class="mid-contents">
-                xxxxx<br/>
-                xxxxx<br/>
-                xxxxx<br/>
-            </div>
-            <!-- 按钮 -->
-            <div>
-                <div href="" class="mid-btn" target="_blank" style="" data-toggle="modal" data-target="#myModal">了解更多</div>
-            </div>
-        </div>
-        <!-- tab右 -->
-        <div style="" class="mid-right-r">
-            <div style="margin:0 auto;">
-                <img src="__PUBLIC__/home/test/2.png" alt="" style="width: 70%;height: 300px;">
-            </div>
-        </div>
-    </div>
-    <div style="clear: both;"></div>
+            <div style="clear: both;"></div>
+        </if>
+    </foreach>
 </div>
 <!-- 这些行业都可以用我们 -->
 <style>
@@ -293,30 +296,44 @@
     <!-- 图片集 -->
     <div class="use_pics">
         <!-- 221 -->
-        <div class="use_pics_1">
-            <div class="pic1"><img src="__PUBLIC__/home/test/v2_q6lk57.png" alt=""></div>
-            <div class="pic2"><img src="__PUBLIC__/home/test/v2_q6lk6h.png" alt=""></div>
-            <div class="pic3"><img src="__PUBLIC__/home/test/v2_q6lk7c.png" alt=""></div>
-        </div>
-        <div style="clear: both;"></div>
+        <foreach name="industry['line_data']" item="vline" key="kline">
+            <if condition="$kline % 2 eq 0">
+                <div class="use_pics_1">
+            <else/>
+                <div class="use_pics_2">
+            </if>
+
+                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic2"><img src="__ROOT__/{$vline[1]['picurl']}" alt=""></div>
+                <div class="pic3"><img src="__ROOT__/{$vline[2]['picurl']}" alt=""></div>
+            </div>
+            <div style="clear: both;"></div>
+        </foreach>
+        <if condition="count($industry['mod_data']) eq 1">
+            <div class="use_pics_4">
+                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
+            </div>
+            <div style="clear: both;"></div>
+        <elseif condition="count($industry['mod_data']) eq 2" />
+            <div class="use_pics_3">
+                <div class="pic1"><img src="__ROOT__/{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic2"><img src="__ROOT__/{$vline[1]['picurl']}" alt=""></div>
+            </div>
+            <div style="clear: both;"></div>
+
+        </if>
+        
         <!-- 122 -->
-        <div class="use_pics_2">
+       <!--  <div class="use_pics_2">
             <div class="pic1"><img src="__PUBLIC__/home/test/v2_q6lk7c.png" alt=""></div>
             <div class="pic2"><img src="__PUBLIC__/home/test/v2_q6lk6h.png" alt=""></div>
             <div class="pic3"><img src="__PUBLIC__/home/test/v2_q6lk6h.png" alt=""></div>
         </div>
-        <div style="clear: both;"></div>
+        <div style="clear: both;"></div> -->
         <!-- 22 -->
-        <div class="use_pics_3">
-            <div class="pic1"><img src="__PUBLIC__/home/test/v2_q6lk6h.png" alt=""></div>
-            <div class="pic2"><img src="__PUBLIC__/home/test/v2_q6lk57.png" alt=""></div>
-        </div>
-        <div style="clear: both;"></div>
+        
         <!-- 1 -->
-        <div class="use_pics_4">
-            <div class="pic1"><img src="__PUBLIC__/home/test/v2_q6lk57.png" alt=""></div>
-        </div>
-        <div style="clear: both;"></div>
+        
     </div>
 </div>
 
@@ -369,7 +386,13 @@
     <h3>他们都在使用我们</h3>
     <div id="div1">
         <ul>
-            <li>
+            <foreach name="they_use" item="vtu">
+                <li>
+                    <div><img src="__ROOT__/{$vtu[0]['picurl']}" /></div>
+                    <div><img src="__ROOT__/{$vtu[1]['picurl']}" /></div>
+                </li>
+            </foreach>
+            <!-- <li>
                 <div><img src="__PUBLIC__/home/test/1.png" /></div>
                 <div><img src="__PUBLIC__/home/test/2.png" /></div>
             </li>
@@ -384,11 +407,7 @@
             <li>
                 <div><img src="__PUBLIC__/home/test/1.png" /></div>
                 <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li>
-            <li>
-                <div><img src="__PUBLIC__/home/test/1.png" /></div>
-                <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>
