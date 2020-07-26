@@ -155,11 +155,11 @@
 								
 
 								<div class="form-group">
-								    <label class="col-sm-2 control-label">Q Q</label>
+								    <label class="col-sm-2 control-label">域名 <span style="color: red;">*</span> </label>
 								    <div class="col-sm-4">
-								        <input type="text" class="form-control" placeholder="Q Q" name="qq" value="{$sys.qq}">
+								        <input type="text" class="form-control" placeholder="域名" name="domain" value="{$sys.domain}">
 								    </div>
-								    <label class="col-sm-2 control-label">标签调用：{qq}</label>
+								    <label class="col-sm-2 control-label" style="color:red;">请填写正确</label>
 								</div>
 								<div class="form-group">
 								    <label class="col-sm-2 control-label">联系地址</label>
@@ -168,6 +168,26 @@
 								    </div>
 								    <label class="col-sm-2 control-label">标签调用：{address}</label>
 								</div>
+								<div class="form-group">
+								    <label class="col-sm-2 control-label">公司logo</label>
+								    <div class="col-md-8">
+								            <div class="fileupload fileupload-new" data-provides="fileupload">
+								                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+								                    <img src="__ROOT__{$sys.weblogo}" alt="" />
+								                </div>
+								                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+								                <div>
+								                       <span class="btn btn-default btn-file">
+								                       <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
+								                       <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+								            <!-- 图片input -->
+								                       <input type="file" class="default" name="weblogo" value="__ROOT__{$sys.weblogo}"/>
+								                       </span>
+								                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
+								                </div>
+								            </div>
+								        </div>
+								  </div>
 								<!-- <div class="form-group">
 								    <label class="col-sm-2 control-label">关于我们</label>
 								    <div class="col-sm-6">
@@ -189,35 +209,20 @@
 		                    <div class="tab-pane" id="SEO">
 								<!-- SEO选项 -->
 								<div class="form-group">
-								    <label class="col-sm-2 control-label">首页META关键词</label>
+								    <label class="col-sm-2 control-label">META关键词</label>
 								    <div class="col-sm-4">
 								         <textarea class="form-control" name="keywords" rows="5">{$sys.keywords}</textarea>
 								    </div>
 								    <label class="col-sm-2 control-label">标签调用：{keywords}</label>
 								</div>
 								<div class="form-group">
-								    <label class="col-sm-2 control-label">首页META网页描述</label>
+								    <label class="col-sm-2 control-label">META网页描述</label>
 								    <div class="col-sm-4">
 								         <textarea class="form-control" name="description" rows="5">{$sys.description}</textarea>
 								    </div>
 								    <label class="col-sm-2 control-label">标签调用：{description}</label>
 								</div>
 								
-
-								<div class="form-group">
-								    <label class="col-sm-2 control-label">新闻META关键词</label>
-								    <div class="col-sm-4">
-								         <textarea class="form-control" name="artkw" rows="5">{$sys.artkw}</textarea>
-								    </div>
-								    <label class="col-sm-2 control-label">标签调用：{artkw}</label>
-								</div>
-								<div class="form-group">
-								    <label class="col-sm-2 control-label">新闻META网页描述</label>
-								    <div class="col-sm-4">
-								         <textarea class="form-control" name="artdes" rows="5">{$sys.artdes}</textarea>
-								    </div>
-								    <label class="col-sm-2 control-label">标签调用：{artdes}</label>
-								</div>	
 
 
 								<!-- SEO选项 -->
