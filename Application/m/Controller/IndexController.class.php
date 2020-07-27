@@ -17,12 +17,12 @@ class IndexController extends BaseController {
         $intro_pic = $this->get_pic_list($intro_pic_where,'',1);
 
         // 行业都使用
-        $industry = $this->pic_class();
+        $industry_pic_where['type'] = 3;
+        $industry = $this->get_pic_list($industry_pic_where,'',1);
         // 他们都用
         $they_use_where['type'] = 4;
-        $they_use = $this->they_use($they_use_where);
-        // var_dump($they_use);
-        // exit();
+        $they_use = $this->get_pic_list($they_use_where,'',1);
+
         
         $this->assign('top_pic',$top_pic);
         $this->assign('intro',$intro_pic);

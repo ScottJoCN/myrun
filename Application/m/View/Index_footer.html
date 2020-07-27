@@ -1,15 +1,30 @@
-    <footer class="footer">
-        <div style="margin:0 auto;margin-top:8px;margin-bottom:8px;"> 
-		  	<div style="float:left;width:100%">
-		  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
-		  			Copyright © 2018 {$sys.companyname}. All Rights Reserved.
-		  		</div>
-		  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
-		  			<a href="http://www.miitbeian.gov.cn" style="color: #eee;" target="_blank">{$sys.icp}</a>
-		  		</div>
-		  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
-		  			电话：{$sys.tel}
-		  		</div>
-		  	</div>	
-	  	</div>
-    </footer>
+<footer class="footer">
+    <div style="margin:0 auto;margin-top:8px;margin-bottom:55px;"> 
+	  	<div style="width:100%">
+	  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
+	  			Copyright © <?php echo date('Y',time())?> {$sys.companyname}. All Rights Reserved.
+	  		</div>
+	  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
+	  			<a href="http://www.miitbeian.gov.cn" style="color: #eee;" target="_blank">{$sys.icp}</a>
+	  		</div>
+	  		<div style="color:#fff;width:100%;text-align:center;font-size:13px;margin:4px 0px;">
+	  			电话：{$sys.tel}
+	  		</div>
+	  	</div>	
+  	</div>
+</footer>
+<style>
+	.navbar-fixed-bottom a:hover{
+		color: #fff;
+	}
+</style>
+<div class="navbar-fixed-bottom">
+	<a style="background-color: #00a0ea;float: left;height: 48px;color:#fff;width: 45%;line-height: 48px;text-align: center;border-radius: 0px 6px 6px 0px;" data-toggle="modal" data-target="#myModal">
+		免费试用
+	</a>
+	<!-- <div style="width: 0;height: 0;border-left: 18px solid #8499b8;border-right: 18px solid #ecca8b;border-bottom: 24px solid #8499b8;border-top: 24px solid #ecca8b;float: left;"></div> -->
+	<div style="height: 48px;background-color: #4d4d4d;line-height: 48px;color: #fff;font-size: 14px;text-align: center;">
+		<img src="__PUBLIC__/m/images/tel_icon.png" alt="" style="" />
+		<span style="margin-left: 10px;font-size: 14px;line-height: 48px;color: #fff;"><a href="tel:{$sys.tel}" style="color: #fff;">{$sys.tel}</a></span>
+	</div>
+</div>

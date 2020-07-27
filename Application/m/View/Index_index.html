@@ -15,7 +15,7 @@
     <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
 
 </head>
-<body onload="setSize();">
+<body onload="setSize();" style="max-width: 680px;margin:0 auto;">
 <include file="Index/header"/>
 
 
@@ -27,7 +27,7 @@
 <!-- 轮播 -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators" style="margin-bottom:0px;">
     <li data-target="#carousel-example-generic" data-slide-to="0"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -38,6 +38,9 @@
     <foreach name="top_pic" item="vt">
         <div class="item" style="height: 180px;">
           <img src="__ROOT__{$vt.picurl}" style="height: 190px;width: 100%">
+          <div class="carousel-caption">
+                <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">了解更多</a>
+          </div>
         </div>
     </foreach>
   </div>
@@ -96,6 +99,10 @@
         width: 50%;
         /*border:1px solid red;*/
         float: left;
+        font-size: 12px;
+    }
+    .intro .intro-chara .intro-content p{
+        font-size: 12px;
     }
 </style>
 <!-- 介绍 -->
@@ -120,7 +127,65 @@
     </foreach>
 </div>
 
+<style>
+.grid {
+    position: relative;
+    /* fluffy */
+    margin: 0 auto;
+    width: 100%;/* end fluffy */
+}
+.grid-item {
+    position: absolute;
+    /* fluffy */
+    opacity: 0;
+    width: 180px;
+    /*border-radius: 3px;*/
+    
+}
+
+/* mq */
+
+@media (max-width: 680px) {
+.grid-item {
+    width: 120px;
+    /*height: 40px;*/
+}
+}
+</style>
+<!-- 这些行业都可以用 -->
+<div>
+
+    <div style="width: 80%;height: 100px;background-color: rgba(0,0,0,0.8);color: #fff;text-align: center;line-height: 40px;position: relative;top:30px;left: 10%;float: left;z-index: 9;font-weight: 500;">
+        这些行业<br/>
+        都可以用我们
+    </div>
+    <div class="grid" style="z-index: 1;"> 
+        <foreach name="industry" item="vid">
+            <div class="grid-item"><img src="__ROOT__{$vid.picurl}" width="100%"></div>
+        </foreach>
+    </div>
+</div>
+<!-- 他们都使用我们 -->
+<div style="margin-top:70px;text-align: center;">
+    <h4>他们都在使用我们</h4>
+    <div class="container" style="margin-top:30px;">
+        <div class="row">
+            <foreach name="they_use" item="vkf">
+                <div class="col-xs-6 col-md-6" style="margin-bottom: 30px;">
+                    <img src="__ROOT__{$vkf.picurl}" alt="" class="img-thumbnail" style="width: 100%;height: 120px;">
+                </div>
+            </foreach>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <include file="Index/footer"/>
+<include file="Index/modal"/>
 
 
 
@@ -133,6 +198,8 @@
    	
     <script src="__PUBLIC__/m/js/footer.js"></script>
     <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script src="__PUBLIC__/m/js/dynamics.js"></script>
+    <script src="__PUBLIC__/m/js/minigrid.js"></script>
     <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
 	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
 	
@@ -147,12 +214,34 @@
         });
     </script>   
     <script>
-    $('#carousel-example-generic ol li:first').addClass('active');
-    $('#carousel-example-generic .carousel-inner .item:first').addClass('active');
-    // $('.carousel').carousel({
-    //   interval: 2000
-    // })
-</script>
+        $('#carousel-example-generic ol li:first').addClass('active');
+        $('#carousel-example-generic .carousel-inner .item:first').addClass('active');
+        // $('.carousel').carousel({
+        //   interval: 2000
+        // })
+    </script>
+    <script>
+          (function(){
+             function animate(item, x, y, index) {
+               dynamics.animate(item, {
+                 translateX: x,
+                 translateY: y,
+                 opacity: 1
+                }, {
+                  type: dynamics.spring,
+                  duration: 800,
+                  frequency: 120,
+                  delay: 100 + index * 30
+                });
+              }
+              
+              minigrid('.grid', '.grid-item', 6, animate);
+
+              window.addEventListener('resize', function(){
+                minigrid('.grid', '.grid-item', 6, animate);
+              });
+            })();
+        </script>
 
 </body>
 </html>
