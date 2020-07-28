@@ -123,7 +123,9 @@
     }
     .mid-btn{
         cursor:pointer;
-        margin-left: 15%;margin-top:10%;width: 160px; height: 50px;  border-color: rgb(56, 148, 255); border-width: 1px; border-style: solid; color: rgb(56, 148, 255); border-radius: 5px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
+        margin-left: 15%;
+        margin-top:8%;width: 160px; height: 50px;  
+        border-color: rgb(56, 148, 255); border-width: 1px; border-style: solid; color: rgb(56, 148, 255); border-radius: 5px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
     }
     #mid-right .mid-right-l{
         width: 50%;float: right;padding: 40px;
@@ -137,7 +139,7 @@
     }
 </style>
 <!-- 公司介绍 -->
-<div id="mid" style="width: 90%;margin:0 auto;">
+<div id="mid" style="width: 80%;margin:0 auto;">
 
     <foreach name="intro" item="vint" key="kint">
         <if condition="$kint % 2 eq 0">
@@ -181,7 +183,7 @@
                 </div>
                 <!-- tab右 -->
                 <div style="" class="mid-right-r">
-                    <div style="margin:0 auto;border:1px solid red">
+                    <div style="margin:0 auto;">
                         <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;">
                     </div>
                 </div>

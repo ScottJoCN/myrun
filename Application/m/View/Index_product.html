@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{$sys.webtitle}</title>
+	<meta name="Keywords" content="{$sys.keywords}">
+    <meta name="Description" content="{$sys.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+
+</head>
+<body onload="setSize();" style="max-width: 680px;margin:0 auto;">
+<include file="Index/header"/>
+
+
+
+<!-- 服务优势 -->
+
+<style>
+
+    .service-content{
+        background-color: rgb(242, 242, 242);
+        width: 100%;
+    }
+    .service-content h2{
+        text-align: center;
+        font-size:28px; color:rgba(16, 16, 16, 1); font-style:normal; letter-spacing:0px; line-height:54px; text-decoration:none;
+    }
+    .service-content .service-list{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .service-content .service-pic{
+        text-align: center;
+    }
+    .service-content .service-title{
+        font-size:18px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:20px; text-decoration:none;
+    }
+    .service-content .service-des{
+        margin-top: 10px;
+        font-weight:400; 
+        font-size:12px; color:rgb(174, 174, 174); font-style:normal; letter-spacing:0px; line-height:20px; text-decoration:none;
+        /*height: 110px;*/
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+    }
+
+</style>
+<div class="service-content container">
+    <div class="container">
+        
+    
+        <div class="row">
+            <h2>服务优势</h2>
+
+            <foreach name="service_pic" item="vsp">
+                <div class="col-xs-12 col-md-12 service-list" style="">
+                    <div class="col-xs-4 col-md-4 service-pic">
+                        <img src="__ROOT__{$vsp.picurl}" alt="" width="90" height="90" class="img-circle">
+                    </div>
+                    <div class="col-xs-8 col-md-8 service-r">
+                        <div class="service-title">{$vsp.pic_title}</div>
+                        <div class="service-des">{$vsp.pic_content}</div>
+                    </div>
+                </div>
+            </foreach>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .dust{
+        margin-top:50px;
+    }
+    .dust h2{
+        text-align: center;
+    }
+    .dust-content{
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .dust-list{
+        float: left;
+        width: 20%;
+        margin:0 auto;
+        padding-right: 5px;
+        text-align: center;
+    }
+    .dust .dust-pic{
+        margin-top: 20px;
+    }
+    .dust .dust-title{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+</style>
+<!-- 适用行业 -->
+<div class="dust">
+    <h2>适用行业</h2>
+    <div class="dust-content">
+        <foreach name="company_pic" item="vcp">
+            <div class="dust-list">
+                <div class="dust-pic"><img src="__ROOT__{$vcp.picurl}" alt="" width="58" height="58" class="img-circle"></div>
+                <div class="dust-title">{$vcp.pic_title}</div>
+            </div>
+        </foreach>
+        <foreach name="company_pic" item="vcp" key="vk">
+            <!-- <if condition="$vk eq 3"> -->
+                <div class="dust-list">
+                    <div class="dust-pic"><img src="__ROOT__{$vcp.picurl}" alt="" width="58" height="58" class="img-circle"></div>
+                    <div class="dust-title">{$vcp.pic_title}</div>
+                </div>
+        </foreach>
+    </div>
+</div>
+<div style="clear: both;"></div>
+
+
+
+<include file="Index/footer"/>
+
+
+
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script src="__PUBLIC__/m/js/dynamics.js"></script>
+    <script src="__PUBLIC__/m/js/minigrid.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	<include file="Index/modal"/>
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_service").addClass("active");
+        });
+    </script>   
+
+    <script>
+          (function(){
+             function animate(item, x, y, index) {
+               dynamics.animate(item, {
+                 translateX: x,
+                 translateY: y,
+                 opacity: 1
+                }, {
+                  type: dynamics.spring,
+                  duration: 800,
+                  frequency: 120,
+                  delay: 100 + index * 30
+                });
+              }
+              
+              minigrid('.grid', '.grid-item', 6, animate);
+
+              window.addEventListener('resize', function(){
+                minigrid('.grid', '.grid-item', 6, animate);
+              });
+            })();
+        </script>
+
+</body>
+</html>
