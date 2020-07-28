@@ -62,7 +62,7 @@
     }
     .intro .intro-container{
         margin-top: 30px;
-        height: 150px;
+        /*height: 150px;*/
     }
     .intro .intro-img{
         width: 49%;
@@ -77,10 +77,10 @@
     }
     .intro .intro-img .intro-img-c .box1{
         width:0;
-            border-right: 30px solid transparent;
-            border-top: 52px solid #fff;
-            border-bottom: 52px solid #fff;
-            float: left;
+        border-right: 30px solid transparent;
+        border-top: 52px solid #fff;
+        border-bottom: 52px solid #fff;
+        float: left;
     }
     .intro .intro-img .intro-img-c .box2{
         width: 60px;
@@ -100,6 +100,9 @@
         /*border:1px solid red;*/
         float: left;
         font-size: 12px;
+    }
+    .intro .intro-chara .intro-content{
+        padding-right:30px;
     }
     .intro .intro-chara .intro-content p{
         font-size: 12px;
@@ -153,7 +156,7 @@
 }
 </style>
 <!-- 这些行业都可以用 -->
-<div>
+<div style="margin-top: 80px;">
 
     <div style="width: 80%;height: 100px;background-color: rgba(0,0,0,0.8);color: #fff;text-align: center;line-height: 40px;position: relative;top:30px;left: 10%;float: left;z-index: 9;font-weight: 500;">
         这些行业<br/>
@@ -166,7 +169,7 @@
     </div>
 </div>
 <!-- 他们都使用我们 -->
-<div style="margin-top:70px;text-align: center;">
+<div style="margin-top:120px;text-align: center;">
     <h4>他们都在使用我们</h4>
     <div class="container" style="margin-top:30px;">
         <div class="row">
@@ -185,7 +188,7 @@
 
 
 <include file="Index/footer"/>
-<include file="Index/modal"/>
+
 
 
 
@@ -202,7 +205,7 @@
     <script src="__PUBLIC__/m/js/minigrid.js"></script>
     <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
 	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
-	
+	<include file="Index/modal"/>
 	<script type="text/javascript">
         $(function() {
             $(".flexslider").flexslider({

@@ -43,13 +43,11 @@
 </head>
 <body>
 <style>
-    .yxt-headerbox ul li:hover{
-
-    }
-    .yxt-headerbox ul li a{
+    
+    /*.yxt-headerbox .nav-list li a{
         padding:3px 5px;
-    }
-    .yxt-headerbox ul li a:hover{
+    }*/
+    .yxt-headerbox .nav-list li a:hover{
         background-color: #3b4249;
         border-radius: 10px;
         color:rgb(255,255,255);
@@ -112,34 +110,34 @@
 
 <style>
     #mid-left .mid-left-l{
-        width: 40%;float: left;height: 380px;padding: 40px;
+        width: 50%;float: left;padding: 40px;
     }
     #mid-left .mid-title,#mid-right .mid-title{
-        font-size: 40px;margin:15px 15%;font-weight:400;line-height:41px;
+        font-size: 30px;margin:15px 15%;font-weight:400;line-height:41px;
     }
     #mid-left .mid-contents{
-        font-size: 24px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
+        font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
     }
     #mid-left .mid-left-r{
-        width: 60%;float: left;height: 380px;padding: 40px;
+        width: 50%;float: left;padding: 40px;
     }
     .mid-btn{
         cursor:pointer;
         margin-left: 15%;margin-top:10%;width: 160px; height: 50px;  border-color: rgb(56, 148, 255); border-width: 1px; border-style: solid; color: rgb(56, 148, 255); border-radius: 5px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
     }
     #mid-right .mid-right-l{
-        width: 40%;float: right;height: 380px;padding: 40px;
+        width: 50%;float: right;padding: 40px;
     }
     
     #mid-right .mid-contents{
-        font-size: 24px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
+        font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
     }
     #mid-right .mid-right-r{
-        width: 60%;float: left;height: 380px;padding: 40px;
+        width: 50%;float: left;padding: 40px 80px 0 0;
     }
 </style>
 <!-- 公司介绍 -->
-<div id="mid" >
+<div id="mid" style="width: 90%;margin:0 auto;">
 
     <foreach name="intro" item="vint" key="kint">
         <if condition="$kint % 2 eq 0">
@@ -161,7 +159,7 @@
                 <!-- tab右 -->
                 <div style="" class="mid-left-r">
                     <div style="margin:0 auto;text-align: center;">
-                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;height: 300px;">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;">
                     </div>
                 </div>
             </div>
@@ -183,8 +181,8 @@
                 </div>
                 <!-- tab右 -->
                 <div style="" class="mid-right-r">
-                    <div style="margin:0 auto;">
-                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;height: 300px;">
+                    <div style="margin:0 auto;border:1px solid red">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;">
                     </div>
                 </div>
             </div>
