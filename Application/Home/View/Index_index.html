@@ -42,7 +42,21 @@
     </script>
 </head>
 <body>
-    
+<style>
+    .yxt-headerbox ul li:hover{
+
+    }
+    .yxt-headerbox ul li a{
+        padding:3px 5px;
+    }
+    .yxt-headerbox ul li a:hover{
+        background-color: #3b4249;
+        border-radius: 10px;
+        color:rgb(255,255,255);
+        padding:0 6px;
+        text-decoration:none;
+    }
+</style>
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
     <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
@@ -52,9 +66,9 @@
         <li class=""><a href="{:U('Index/kf')}" title="">定制开发</a></li>
         <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
         <li class="">{$sys.tel}</li>
-        <li class="" style="">
+        <!--<li class="" style="">-->
             <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
-        </li>
+        <!--</li>-->
     </ul>
 
 </div>
