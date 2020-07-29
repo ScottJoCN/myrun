@@ -18,8 +18,58 @@
 <body onload="setSize();" style="max-width: 680px;margin:0 auto;">
 <include file="Index/header"/>
 
-
-
+<!-- <div class="" style="background-image: url(__ROOT__{$top_pic.picurl});"> -->
+<div><img src="__ROOT__{$top_pic.picurl}" alt="" style="height: 150px;width: 100%;"></div>
+<!-- 产品介绍 -->
+<style>
+    .product .product-tab{
+        margin:20px auto;
+        border-radius: 8px;
+        
+        width: 80%;
+        text-align: center;
+        color: #fff;
+    }
+    .product .product-tab .product-title{
+        color: #fff;
+        font-size: 28px;
+        /*font-weight: 300;*/
+        font-weight: bold;
+        padding:20px 0;
+    }
+    .product .product-color1{
+        background-color: #69b3bc;
+    }
+    .product .product-color2{
+        background-color: #4184b1;
+    }
+    .product .product-color3{
+        background-color: #688ebb;
+    }
+    .product .product-color4{
+        background-color: #686bbc;
+    }
+    .product .product-tab .product-content{
+        color: #fff;
+        padding:5px 30px 20px 30px;
+    }
+</style>
+<div class="product">
+    <foreach name="introduct_pic" item="vip" key="kip">
+        <if condition="$kip % 4 eq 0">
+            <div class="product-tab product-color1">
+        <elseif condition="$kip % 4 eq 1"/>
+            <div class="product-tab product-color2">
+        <elseif condition="$kip % 4 eq 2"/>
+            <div class="product-tab product-color3">
+        <elseif condition="$kip % 4 eq 3"/>
+            <div class="product-tab product-color4">
+        </if>
+                <div class="product-title">{$vip.pic_title}</div>
+                <div class="product-content">{$vip.pic_content}</div>
+            </div>
+    </foreach>
+</div>
 <!-- 服务优势 -->
 
 <style>
@@ -70,9 +120,6 @@
                     </div>
                 </div>
             </foreach>
-
-
-
         </div>
     </div>
 </div>
@@ -115,13 +162,7 @@
                 <div class="dust-title">{$vcp.pic_title}</div>
             </div>
         </foreach>
-        <foreach name="company_pic" item="vcp" key="vk">
-            <!-- <if condition="$vk eq 3"> -->
-                <div class="dust-list">
-                    <div class="dust-pic"><img src="__ROOT__{$vcp.picurl}" alt="" width="58" height="58" class="img-circle"></div>
-                    <div class="dust-title">{$vcp.pic_title}</div>
-                </div>
-        </foreach>
+        
     </div>
 </div>
 <div style="clear: both;"></div>

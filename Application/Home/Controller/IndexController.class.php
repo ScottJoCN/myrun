@@ -11,6 +11,7 @@ class IndexController extends BaseController {
         // 头图
         $top_pic_where['type'] = 1;
         $top_pic = $this->get_pic_list($top_pic_where);
+        // var_dump($top_pic);exit();
 
         // 中间介绍
         $intro_pic_where['type'] = 2;
@@ -75,7 +76,7 @@ class IndexController extends BaseController {
 
         // 客户案例
         $case_where['type'] = 12;
-        $case_data = $this->get_pic_list($case_where,10,1);
+        $case_data = $this->get_pic_list($case_where,10,0);
 
         $this->assign('top_pic',$top_pic);
         $this->assign('kf_data',$kf_data);
@@ -95,7 +96,7 @@ class IndexController extends BaseController {
 
         $this->assign('top_pic',$top_pic);
         $this->assign('service_data',$service_data);
-        
+
 
         $this->display();
     }

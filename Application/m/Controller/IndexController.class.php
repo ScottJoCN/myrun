@@ -75,7 +75,7 @@ class IndexController extends BaseController {
 
         // 客户案例
         $case_where['type'] = 12;
-        $case_data = $this->get_pic_list($case_where,10,1);
+        $case_data = $this->get_pic_list($case_where,10,0);
 
         $this->assign('top_pic',$top_pic);
         $this->assign('kf_data',$kf_data);

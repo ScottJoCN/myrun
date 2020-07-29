@@ -91,7 +91,11 @@
         </foreach>
     </ul>
     </div>
-    <div class="c-carousel-dot hd"><span class="active"></span><span></span></div>
+    <div class="c-carousel-dot hd">
+        <foreach name="top_pic" item="vtop">
+            <span></span>
+        </foreach>
+    </div>
     </div>
    
 </div>
@@ -106,6 +110,8 @@
         autoPlay: true,
         trigger: "click"
     });
+
+    $(".c-carousel-dot span:first").addClass('active');
 </script>
 
 <style>

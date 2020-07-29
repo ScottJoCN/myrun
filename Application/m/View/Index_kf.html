@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{$sys.webtitle}</title>
+	<meta name="Keywords" content="{$sys.keywords}">
+    <meta name="Description" content="{$sys.description}">
+	<link href="__PUBLIC__/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/base.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/index.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/banner.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/m/css/indexfooter.css" rel="stylesheet">
+
+</head>
+<body onload="setSize();" style="max-width: 680px;margin:0 auto;">
+<include file="Index/header"/>
+<style>
+    .top_pic{
+        background-image: url(__ROOT__{$top_pic.picurl});height: 180px;width: 100%;background-size:100% 100%;
+    }
+    .top_pic h3{
+        text-align: center;
+        color: #fff;
+        padding-top:30px;
+    }
+    .top_pic div{
+        color: #fff;
+        text-align: center;
+        padding:10px 30px;
+        width: 100%;
+        white-space:normal;
+        word-break:break-all;
+    }
+</style>
+<!-- <div class="" style=""> -->
+<div style="" class="top_pic">
+    <h3>{$top_pic.pic_title}</h3>
+    <div>{$top_pic.pic_content}</div>
+</div>
+
+<style>
+    .kf-content{
+        margin-top:40px;
+    }
+    .kf-content .kf-div{
+        border:1px solid #dbe0e5;
+        margin:0 auto;
+        text-align: center;
+        margin-bottom:30px;
+
+    }
+    .kf-content .kf-div .kf-title{
+        line-height:66px;
+        color:#666;
+        background: #f5f7fa;
+        font-size: 20px;
+
+    }
+    .kf-content .kf-div .kf-content{
+        margin:20px auto;
+        font-size: 18px;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+
+    }
+    .kf-content .kf-div .kf-pic{
+        margin:0 auto;
+        margin-bottom: 50px;
+        width: 80%;
+
+    }
+    .kf-content .kf-div .kf-pic img{
+        width: 100%;
+    }
+</style>
+<!-- 定制开发介绍 -->
+<div class="kf-content container">
+    <div class="row">
+        <foreach name="kf_data" item="vkf">
+            <div class="col-xs-6 col-md-6 kf-list" style="">
+                <div class="kf-div">
+                    <div class="kf-title">{$vkf.pic_title}</div>
+                    <div class="kf-content">{$vkf.pic_content}</div>
+                    <div class="kf-pic">
+                        <img src="__ROOT__{$vkf.picurl}" alt="">
+                    </div>
+                </div>
+            </div>
+        </foreach>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<!-- 服务流程 -->
+<style>
+    .linetime h3{
+        text-align: center;
+    }
+</style>
+<div class="linetime">
+    <h3>服务流程</h3>
+    <div class="container">
+
+        <div class="main">
+            <ul class="cbp_tmtimeline">
+                <foreach name="service_data" item="vsd">
+                    <li>
+                        <div class="cbp_tmlabel">
+                            <h4>{$vsd.pic_title}</h4>
+                            <p>{$vsd.pic_content}</p>
+                        </div>
+                    </li>
+                </foreach>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 客户案例 -->
+<style>
+    #people_use{
+        background-color: #f2f2f2;
+        text-align: center;
+    }
+    #people_use h3{
+        text-align: center;
+        padding:20px;
+    }
+    #people_use .people_use_item{
+        width: 75%;
+        margin:0 auto;
+        padding-bottom: 40px;
+    }
+    #people_use .people_use_item .people_use_pic{
+
+    }
+    #people_use .people_use_item .people_use_pic img{
+        width: 100%;
+        border-radius: 16px;
+    }
+    #people_use .people_use_item .people_use_title{
+        padding:10px 20px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    #people_use .people_use_item .people_use_content{
+        width: 100%;
+        white-space:normal;
+        word-break:break-all;
+    }
+</style>
+<div id="people_use">
+    <h3>客户案例</h3>
+    <foreach name="case_data" item="vcd">
+        <div class="people_use_item">
+            <div class="people_use_pic">
+                <img src="__ROOT__{$vcd.picurl}" alt="">
+            </div>
+            <div class="people_use_title">{$vcd.pic_title}</div>
+            <div class="people_use_content">{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}{$vcd.pic_content}</div>
+            
+        </div>
+    </foreach>
+</div>
+<!-- 客户案例 -->
+
+
+<include file="Index/footer"/>
+
+
+
+
+
+
+
+<!-- js -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="__PUBLIC__/home/bootstrap/js/bootstrap.min.js"></script>
+   	
+    <script src="__PUBLIC__/m/js/footer.js"></script>
+    <script src="__PUBLIC__/m/js/menu.js"></script>
+    <script src="__PUBLIC__/m/js/dynamics.js"></script>
+    <script src="__PUBLIC__/m/js/minigrid.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/m/js/jquery.flexslider-min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/m/css/component.css" />
+    <script src="__PUBLIC__/m/js/modernizr.custom.js"></script>
+	<!-- <script src="__PUBLIC__/m/js/anmtion.js"></script> -->
+	<include file="Index/modal"/>
+	<script type="text/javascript">
+        $(function() {
+            $(".flexslider").flexslider({
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                touch: true //是否支持触屏滑动(比如可用在手机触屏焦点图)
+            });
+            $(".nav_product").addClass("active");
+        });
+    </script>   
+
+
+
+</body>
+</html>
