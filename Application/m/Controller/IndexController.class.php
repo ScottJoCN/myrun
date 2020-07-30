@@ -86,14 +86,15 @@ class IndexController extends BaseController {
     }
     public function about(){
         // 头图
-        $top_pic_where['type'] = 13;
-        $top_pic = $this->get_pic_one($top_pic_where);
+        // $top_pic_where['type'] = 13;
+        // $top_pic = $this->get_pic_one($top_pic_where);
 
         // 介绍
         $service_where['type'] = 14;
         $service_data = $this->get_pic_list($service_where,'',1);
+        // var_dump($service_data);exit();
 
-        $this->assign('top_pic',$top_pic);
+        // $this->assign('top_pic',$top_pic);
         $this->assign('service_data',$service_data);
         
 

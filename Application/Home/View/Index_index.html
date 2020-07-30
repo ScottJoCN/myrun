@@ -48,11 +48,15 @@
         padding:3px 5px;
     }*/
     .yxt-headerbox .nav-list li a:hover{
-        background-color: #3b4249;
+        background-color: rgba(59,66,73,0.9);
+        opacity:0.9;
         border-radius: 10px;
         color:rgb(255,255,255);
         padding:0 6px;
         text-decoration:none;
+    }
+    .total_btn_a{
+        border-radius: 8px;
     }
 </style>
 <!--header-->
@@ -65,7 +69,7 @@
         <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
         <li class="">{$sys.tel}</li>
         <!--<li class="" style="">-->
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a">免费试用</a>
         <!--</li>-->
     </ul>
 
@@ -76,17 +80,22 @@
         <a href="#"></a>
     </div>
 </div> -->
+<style>
+    .top_btn_a:hover{
+        text-decoration:none;
+    }
+</style>
 <div class="index-top" style="margin-top:0px;">
     <div class="m-carousel slideBox">
     <div class="bd">
     <ul class="m-carousel-list">
         <foreach name="top_pic" item="vtop">
             <li style="background-image: url(__ROOT__{$vtop.picurl});background-size:100% 100%;">
-                <a href="#" data-toggle="modal" data-target="#myModal">
-                    <h2 class="c-line-clamp m-carousel-title"></h2>
-                    <p class="c-line-clamp m-carousel-note"></p>
-                    <p class="m-carousel-btn">了解更多</p>
-                </a>
+                
+                <h2 class="c-line-clamp m-carousel-title"></h2>
+                <p class="c-line-clamp m-carousel-note"></p>
+                <a class="m-carousel-btn top_btn_a" href="#" data-toggle="modal" data-target="#myModal" style="width: 120px; border-radius: 8px;">了解更多</a>
+                
             </li>
         </foreach>
     </ul>
@@ -115,33 +124,48 @@
 </script>
 
 <style>
+    #mid-left,#mid-right{
+        margin-top: 60px;
+    }
     #mid-left .mid-left-l{
-        width: 50%;float: left;padding: 40px;
+        width: 40%;float: left;padding-top: 40px;
     }
     #mid-left .mid-title,#mid-right .mid-title{
-        font-size: 30px;margin:15px 15%;font-weight:400;line-height:41px;
+        font-size: 30px;margin:15px 0;font-weight:400;line-height:41px;
+        font-weight: 600;
     }
     #mid-left .mid-contents{
-        font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
+        font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15% 0;
     }
     #mid-left .mid-left-r{
-        width: 50%;float: left;padding: 40px;
+        width: 60%;float: left;padding: 40px;
+        /*border:1px solid red;*/
     }
     .mid-btn{
         cursor:pointer;
-        margin-left: 15%;
+        margin-left: 15% 0;
         margin-top:8%;width: 160px; height: 50px;  
         border-color: rgb(56, 148, 255); border-width: 1px; border-style: solid; color: rgb(56, 148, 255); border-radius: 5px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
     }
     #mid-right .mid-right-l{
-        width: 50%;float: right;padding: 40px;
+        width: 60%;float: right;padding: 40px;
+        /*border:1px solid red;*/
+    }
+    #mid-right .mid-right-l .mid-title{
+        text-align: right;
+    }
+    #mid-right .mid-right-l .mid-contents{
+        text-align: right;
+    }
+    #mid-right .mid-right-l .mid-right-btn{
+        float: right;
     }
     
     #mid-right .mid-contents{
         font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
     }
     #mid-right .mid-right-r{
-        width: 50%;float: left;padding: 40px 80px 0 0;
+        width: 40%;float: left;padding: 40px 80px 0 0;
     }
 </style>
 <!-- 公司介绍 -->
@@ -161,13 +185,13 @@
                     </div>
                     <!-- 按钮 -->
                     <div>
-                        <div href="" class="mid-btn" target="_blank" data-toggle="modal" data-target="#myModal">了解更多</div>
+                        <div class="mid-btn" target="_blank" data-toggle="modal" data-target="#myModal">了解更多</div>
                     </div>
                 </div>
                 <!-- tab右 -->
                 <div style="" class="mid-left-r">
-                    <div style="margin:0 auto;text-align: center;">
-                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;">
+                    <div style="text-align: right;">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 100%;">
                     </div>
                 </div>
             </div>
@@ -183,14 +207,14 @@
                         {$vint.pic_content}
                     </div>
                     <!-- 按钮 -->
-                    <div>
-                        <div href="" class="mid-btn" target="_blank" style="" data-toggle="modal" data-target="#myModal">了解更多</div>
+                    <div class="mid-right-btn">
+                        <div class="mid-btn" target="_blank" style="" data-toggle="modal" data-target="#myModal">了解更多</div>
                     </div>
                 </div>
                 <!-- tab右 -->
                 <div style="" class="mid-right-r">
                     <div style="margin:0 auto;">
-                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 70%;">
+                        <img src="__ROOT__{$vint.picurl}" alt="" style="width: 100%;">
                     </div>
                 </div>
             </div>
