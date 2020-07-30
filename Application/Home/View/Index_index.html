@@ -58,6 +58,9 @@
     .total_btn_a{
         border-radius: 8px;
     }
+    .total_btn_a_free:hover{
+        color: #333;
+    }
 </style>
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
@@ -69,7 +72,7 @@
         <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
         <li class="">{$sys.tel}</li>
         <!--<li class="" style="">-->
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a">免费试用</a>
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);color: #fff;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
         <!--</li>-->
     </ul>
 
@@ -94,7 +97,7 @@
                 
                 <h2 class="c-line-clamp m-carousel-title"></h2>
                 <p class="c-line-clamp m-carousel-note"></p>
-                <a class="m-carousel-btn top_btn_a" href="#" data-toggle="modal" data-target="#myModal" style="width: 120px; border-radius: 8px;">了解更多</a>
+                <a class="m-carousel-btn top_btn_a" href="#" data-toggle="modal" data-target="#myModal" style="width: 140px;height: 55px;line-height:55px;margin-top:462px; border-radius: 8px;">了解更多</a>
                 
             </li>
         </foreach>
@@ -145,11 +148,12 @@
         cursor:pointer;
         margin-left: 15% 0;
         margin-top:8%;width: 160px; height: 50px;  
-        border-color: rgb(56, 148, 255); border-width: 1px; border-style: solid; color: rgb(56, 148, 255); border-radius: 5px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
+        border-color: rgb(56, 148, 255); 
+        border-width: 1px; border-style: solid; 
+        color: rgb(56, 148, 255); border-radius: 10px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
     }
     #mid-right .mid-right-l{
-        width: 60%;float: right;padding: 40px;
-        /*border:1px solid red;*/
+        width: 40%;float: right;padding: 40px;
     }
     #mid-right .mid-right-l .mid-title{
         text-align: right;
@@ -165,7 +169,8 @@
         font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
     }
     #mid-right .mid-right-r{
-        width: 40%;float: left;padding: 40px 80px 0 0;
+        width: 60%;float: left;padding: 40px 80px 0 0;
+        /*border:1px solid red;*/
     }
 </style>
 <!-- 公司介绍 -->

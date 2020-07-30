@@ -8,7 +8,7 @@
 	<meta name="author" content="ThemeBucket">
 	<link rel="shortcut icon" href="#" type="image/png">
 
-	<title>新增首页头图 - {$sys.webname}后台管理</title>
+	<title>新增首页轮播 - {$sys.webname}后台管理</title>
 	<!--tags input-->
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/asource/js/jquery-tags-input/jquery.tagsinput.css" />
 	<!--file upload-->
@@ -45,7 +45,7 @@
         <!-- header section end-->
 		<div class="page-heading">
             <h3>
-                新增首页头图
+                新增首页轮播
             </h3>
             <ul class="breadcrumb">
             	<li>
@@ -53,9 +53,9 @@
                 </li>
 
                 <li>
-                    <a href="{:U('Home/piclist',array('list'=>1,'cla'=>1))}">头图列表</a>
+                    <a href="{:U('Home/piclist',array('list'=>1,'cla'=>1))}">轮播列表</a>
                 </li>
-                <li class="active"> 新增首页头图 </li>
+                <li class="active"> 新增首页轮播 </li>
             </ul>
             
         </div>  
@@ -67,7 +67,7 @@
         <div class="col-md-10">
           <div class="panel">
             <div class="panel-heading">
-              新增首页头图
+              新增首页轮播
               <span class="tools pull-right">
               <a class="fa fa-chevron-down" href="javascript:;"></a>
               </span>
@@ -78,7 +78,7 @@
 	
 	<input type="hidden" name="type" value="1">
 	<div class="form-group">
-		<label class="col-sm-2 control-label">头图</label>
+		<label class="col-sm-2 control-label">PC端轮播图</label>
 		<div class="col-sm-5">
 			<div class="fileupload fileupload-new" data-provides="fileupload">
                     <span class="btn btn-default btn-file">
@@ -92,7 +92,21 @@
 		</div>
 		<label class="col-sm-2 control-label">尺寸（1680*560）</label>
 	</div>
-
+	<div class="form-group">
+		<label class="col-sm-2 control-label">移动端轮播图</label>
+		<div class="col-sm-5">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+                    <span class="btn btn-default btn-file">
+                    <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select file</span>
+                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                    <input type="file" class="default" name="picurl_small"/>
+                    </span>
+                <span class="fileupload-preview" style="margin-left:5px;"></span>
+                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
+            </div>
+		</div>
+		<label class="col-sm-2 control-label">尺寸（480*720）</label>
+	</div>
 
 	<div class="form-group">
 		<div class="col-sm-2 col-sm-offset-2"><input type="submit" name="" class="btn btn-success" id="art_sub" value="新增"></div>

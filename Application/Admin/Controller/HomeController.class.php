@@ -35,7 +35,12 @@ class HomeController extends BaseController {
 			if($info['picurl']){
 				$data['picurl'] = '/Uploads'.$info["picurl"]["savepath"].$info["picurl"]["savename"];
 			}else{
-				$this->error("请添加图片");
+				$this->error("请添加PC端轮播图片");
+			}
+			if($info['picurl_small']){
+				$data['picurl_small'] = '/Uploads'.$info["picurl_small"]["savepath"].$info["picurl_small"]["savename"];
+			}else{
+				$this->error("请添加移动端轮播图片");
 			}
 			
 			$insertid = $this->pic->add($data);
@@ -56,8 +61,11 @@ class HomeController extends BaseController {
 			$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
 			$upload->savePath  =      '/pic/'; // 设置附件上传目录 相对于/Uploads
 			$info   =   $upload->upload();
-			if($info){
+			if($info['picurl']){
 				$data['picurl'] = '/Uploads'.$info["picurl"]["savepath"].$info["picurl"]["savename"];
+			}
+			if($info['picurl_small']){
+				$data['picurl_small'] = '/Uploads'.$info["picurl_small"]["savepath"].$info["picurl_small"]["savename"];
 			}
 
 			$saveid = $this->pic->save($data);
