@@ -39,6 +39,12 @@ class SystemController extends BaseController {
         if($info['weblogo'] !=''){
             $data['weblogo'] = '/Uploads'.$info["weblogo"]["savepath"].$info["weblogo"]["savename"];
         }
+        if($info['lp_pic'] !=''){
+            $data['lp_pic'] = '/Uploads'.$info["lp_pic"]["savepath"].$info["lp_pic"]["savename"];
+        }
+        if($info['art_pic'] !=''){
+            $data['art_pic'] = '/Uploads'.$info["art_pic"]["savepath"].$info["art_pic"]["savename"];
+        }
 
         
 

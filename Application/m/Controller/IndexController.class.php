@@ -9,7 +9,7 @@ class IndexController extends BaseController {
         $find['aboutus'] = htmlspecialchars_decode($find['aboutus']);
         $this->assign('sys',$find);
         // 头图
-        $top_pic_where['type'] = 1;
+        $top_pic_where['type'] = 15;
         $top_pic = $this->get_pic_list($top_pic_where);
 
         // 中间介绍

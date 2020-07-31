@@ -10,7 +10,7 @@ class HomeController extends BaseController {
     }
     public function piclist(){
 
-    	$where['type'] = 1;
+    	$where['type'] = array('in','1,15');
     	$p_data = $this->get_pic_data($where);
     	$this->assign('page',$p_data['show']);
         
@@ -35,13 +35,9 @@ class HomeController extends BaseController {
 			if($info['picurl']){
 				$data['picurl'] = '/Uploads'.$info["picurl"]["savepath"].$info["picurl"]["savename"];
 			}else{
-				$this->error("请添加PC端轮播图片");
+				$this->error("请添加轮播图片");
 			}
-			if($info['picurl_small']){
-				$data['picurl_small'] = '/Uploads'.$info["picurl_small"]["savepath"].$info["picurl_small"]["savename"];
-			}else{
-				$this->error("请添加移动端轮播图片");
-			}
+			
 			
 			$insertid = $this->pic->add($data);
 			if($insertid){
@@ -64,9 +60,6 @@ class HomeController extends BaseController {
 			if($info['picurl']){
 				$data['picurl'] = '/Uploads'.$info["picurl"]["savepath"].$info["picurl"]["savename"];
 			}
-			if($info['picurl_small']){
-				$data['picurl_small'] = '/Uploads'.$info["picurl_small"]["savepath"].$info["picurl_small"]["savename"];
-			}
 
 			$saveid = $this->pic->save($data);
 			if($saveid){
@@ -78,7 +71,6 @@ class HomeController extends BaseController {
 			$id = I('get.id');
 
 			$where['id'] = $id;
-			$where['type'] = 1;
 			$proD = $this->pic->where($where)->find();
 			$this->assign('pro',$proD);
 			$this->display();

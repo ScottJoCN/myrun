@@ -45,7 +45,7 @@
     /*.yxt-headerbox .nav-list li a{
         padding:3px 5px;
     }*/
-    .yxt-headerbox .nav-list li a:hover{
+    .yxt-headerbox .nav-list li .transf:hover{
         background-color: rgba(59,66,73,0.9);
         opacity:0.9;
         border-radius: 10px;
@@ -56,23 +56,25 @@
     .total_btn_a{
         border-radius: 8px;
     }
+    .total_btn_a_free:hover{
+        color: #fff;
+    }
 </style>
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
     <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
-        <li class=""><a href="{:U('Index/index')}" title="">首页</a></li>
-        <li class=""><a href="{:U('Index/product')}" title="">产品介绍</a></li>
-        <li class="active"><a href="{:U('Index/kf')}" title="">定制开发</a></li>
-        <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
+        <li class=""><a href="{:U('Index/index')}" title="" class="transf">首页</a></li>
+        <li class=""><a href="{:U('Index/product')}" title="" class="transf">产品介绍</a></li>
+        <li class="active"><a href="{:U('Index/kf')}" title="" class="transf">定制开发</a></li>
+        <li class=""><a href="{:U('Index/about')}" title="" class="transf">关于我们</a></li>
         <li class="">{$sys.tel}</li>
         <li class="" style="">
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;border-radius: 16px;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
         </li>
     </ul>
 
 </div>
-<!--header-->
 <div class="gailan-first text-white" style="background-image: url(__ROOT__{$top_pic.picurl});height: 200px;"></div>
 
 <style>
@@ -84,6 +86,7 @@
         margin:0 auto;
         text-align: center;
         margin-bottom:30px;
+        border-radius: 16px;
 
     }
     .kf-content .kf-div .kf-title{
@@ -91,6 +94,7 @@
         color:#666;
         background: #f5f7fa;
         font-size: 20px;
+        border-radius: 16px 16px 0 0;
 
     }
     .kf-content .kf-div .kf-content{
@@ -160,6 +164,7 @@
     }
     .service-content .service-list .service-list-pic img{
         width: 100%;height: 140px;
+        border-radius: 16px;
     }
     .service-content .service-list .service-list-title{
         color: rgb(56, 148, 255);
@@ -181,12 +186,15 @@
 <div class="service-content">
     <h2>服务流程</h2>
     <div class="content-row">
-        <foreach name="service_data" item="vsd">
+        <foreach name="service_data" item="vsd" key="ksd">
             <div class="service-list" style="">
-                <div class="service-list-pic"><img src="__ROOT__{$vsd.picurl}" alt="" width="100%"></div>
+                <div class="service-list-pic" style=""><img src="__ROOT__{$vsd.picurl}" alt="" width="100%"></div>
                 <div class="service-list-title">{$vsd.pic_title}</div>
                 <div class="service-list-content">{$vsd.pic_content}</div>
             </div>
+            <if condition="($ksd +1) neq count($service_data)">
+                <div class="glyphicon glyphicon-chevron-right" style="line-height: 300px;"></div>
+            </if>
         </foreach>
         <!-- <div class="service-list" style="">
             <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
@@ -278,7 +286,7 @@
         <ul>
             <foreach name="case_data" item="vcd">
                 <li>
-                    <div><img src="__ROOT__{$vcd.picurl}" /></div>
+                    <div><img src="__ROOT__{$vcd.picurl}" style="border-radius: 16px;" /></div>
                     <div class="div1_title">{$vcd.pic_title}</div>
                     <div class="div1_content">{$vcd.pic_content}</div>
                 </li>

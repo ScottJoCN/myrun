@@ -47,7 +47,7 @@
     /*.yxt-headerbox .nav-list li a{
         padding:3px 5px;
     }*/
-    .yxt-headerbox .nav-list li a:hover{
+    .yxt-headerbox .nav-list li .transf:hover{
         background-color: rgba(59,66,73,0.9);
         opacity:0.9;
         border-radius: 10px;
@@ -59,21 +59,21 @@
         border-radius: 8px;
     }
     .total_btn_a_free:hover{
-        color: #333;
+        color: #fff;
     }
 </style>
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
     <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
-        <li class="active"><a href="{:U('Index/index')}" title="">首页</a></li>
-        <li class=""><a href="{:U('Index/product')}" title="">产品介绍</a></li>
-        <li class=""><a href="{:U('Index/kf')}" title="">定制开发</a></li>
-        <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
+        <li class="active"><a href="{:U('Index/index')}" title="" class="transf">首页</a></li>
+        <li class=""><a href="{:U('Index/product')}" title="" class="transf">产品介绍</a></li>
+        <li class=""><a href="{:U('Index/kf')}" title="" class="transf">定制开发</a></li>
+        <li class=""><a href="{:U('Index/about')}" title="" class="transf">关于我们</a></li>
         <li class="">{$sys.tel}</li>
-        <!--<li class="" style="">-->
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);color: #fff;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
-        <!--</li>-->
+        <li class="" style="">
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;border-radius: 16px;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
+        </li>
     </ul>
 
 </div>

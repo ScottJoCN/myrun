@@ -44,7 +44,7 @@
     /*.yxt-headerbox .nav-list li a{
         padding:3px 5px;
     }*/
-    .yxt-headerbox .nav-list li a:hover{
+    .yxt-headerbox .nav-list li .transf:hover{
         background-color: rgba(59,66,73,0.9);
         opacity:0.9;
         border-radius: 10px;
@@ -55,25 +55,26 @@
     .total_btn_a{
         border-radius: 8px;
     }
+    .total_btn_a_free:hover{
+        color: #fff;
+    }
 </style>
-
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
     <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
-        <li class=""><a href="{:U('Index/index')}" title="">首页</a></li>
-        <li class=""><a href="{:U('Index/product')}" title="">产品介绍</a></li>
-        <li class=""><a href="{:U('Index/kf')}" title="">定制开发</a></li>
-        <li class="active"><a href="{:U('Index/about')}" title="">关于我们</a></li>
+        <li class=""><a href="{:U('Index/index')}" title="" class="transf">首页</a></li>
+        <li class=""><a href="{:U('Index/product')}" title="" class="transf">产品介绍</a></li>
+        <li class=""><a href="{:U('Index/kf')}" title="" class="transf">定制开发</a></li>
+        <li class="active"><a href="{:U('Index/about')}" title="" class="transf">关于我们</a></li>
         <li class="">{$sys.tel}</li>
         <li class="" style="">
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;border-radius: 16px;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
         </li>
     </ul>
 
 </div>
-<!--header-->
-<div class="gailan-first text-white" style="background-image: url(__ROOT__{$top_pic.picurl});height: 200px;"></div>
+<!-- <div class="gailan-first text-white" style="background-image: url(__ROOT__{$top_pic.picurl});height: 200px;"></div> -->
 
 <style>
     .about{
@@ -88,7 +89,9 @@
     .about .about-content{
         color: rgb(174, 174, 174);
         text-align: center;
-        margin: 50px 0;
+        margin:50px auto;
+        width: 95%;
+        /*margin: 50px 0;*/
         line-height: 28px;
 
     }
@@ -101,23 +104,50 @@
     }
     .about.a-active h2{
         text-align: left;
+        width: 95%;
+        margin:0 auto;
     }
     .about.a-active .about-content{
         text-align: left;
     }
+    .pic_back{
+        width: 100%;
+        margin:0 auto;
+        /*margin-bottom: 80px;*/
+    }
+    .pic_back h2{
+        text-align:center;
+        padding: 40px 20px 10px;
+        color: #fff;
+        font-weight: bolder;
+    }
+    .pic_back_content{
+        padding: 10px 12% 10%;
+        color: #fff;
+    }
 </style>
 <foreach name="service_data" item="vsd" key="ksd">
     <if condition="$ksd % 2 eq 0">
-        <div class="about">
-    <else/>
-        <div class="about a-active">
-    </if>
-        <h2>{$vsd.pic_title}</h2>
-        <div class="about-content">{$vsd.pic_content}</div>
-        <div class="about-pic">
-            <img src="__ROOT__{$vsd.picurl}" alt="">
+        
+    
+
+    <div style="background: url(__ROOT__{$vsd.picurl_small}) no-repeat; background-size: cover;" class="pic_back">
+        <div style="background-color: rgba(0,0,0,0.5);">
+            <h2>{$vsd.pic_title}</h2>
+            <div class="pic_back_content">{$vsd.pic_content}</div>
         </div>
     </div>
+    <else/>
+        <div class="about a-active">
+            <h2>{$vsd.pic_title}</h2>
+            <div class="about-content">{$vsd.pic_content}</div>
+            <div class="about-pic" style="margin: 0 auto;width: 95%;">
+                <img src="__ROOT__{$vsd.picurl}" alt="">
+            </div>
+        </div>
+    </if>
+    <!-- <div class="about"> -->
+        
 </foreach>
 
 <!-- <div class="about a-active">

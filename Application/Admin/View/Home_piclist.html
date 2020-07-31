@@ -75,7 +75,8 @@
 					        <tr>
 					            <!-- <th><input type="checkbox" name="" id="control"></th> -->
 					            <th>ID</th>
-					            <th>图片</th>
+                                <th>图片</th>
+					            <th>PC / 移动</th>
 					            <th>操作管理</th>
 					        </tr>
 					    </thead>
@@ -84,7 +85,8 @@
 					        <tr>
 					           <!-- <td><input type="checkbox" name="id" value="{$vad.aid}"></td> -->
 					           <td>{$vk+1}</td>
-                               <td><img src="__ROOT__{$vad.picurl}" alt="" width="200px"></td>
+                               <td><if condition="$vad['type'] eq 1"><img src="__ROOT__{$vad.picurl}" alt="" width="200px"><else/><img src="__ROOT__{$vad.picurl}" alt="" height="120px"></if></td>
+                               <td><if condition="$vad['type'] eq 1"> PC端 <else/> 移动端 </if></td>
 					           <td>
 					            <a href="__URL__/editpic/id/{$vad.id}" title="编辑"><img src="__PUBLIC__/asource/images/icons/edit.png" alt="" width="20px"/></a>
 					            <a title="删除" onclick="if(confirm('确认要删除吗?')){location.href = '{:U("Home/del",array("id"=>$vad["id"]))}';}"><img src="__PUBLIC__/asource/images/icons/del.png" alt="" width="20px"/></a>

@@ -48,7 +48,7 @@
     /*.yxt-headerbox .nav-list li a{
         padding:3px 5px;
     }*/
-    .yxt-headerbox .nav-list li a:hover{
+    .yxt-headerbox .nav-list li .transf:hover{
         background-color: rgba(59,66,73,0.9);
         opacity:0.9;
         border-radius: 10px;
@@ -59,38 +59,54 @@
     .total_btn_a{
         border-radius: 8px;
     }
+    .total_btn_a_free:hover{
+        color: #fff;
+    }
 </style>
 <!--header-->
 <div class="yxt-headerbox c_container1200 clearfix" id="headerbox">
     <a href="{:U('Index/index')}" class="pull-left" style=""><img src="__ROOT__{$sys.weblogo}" alt="" height="55"></a>
     <ul class="nav-list pull-right">
-        <li class=""><a href="{:U('Index/index')}" title="">首页</a></li>
-        <li class="active"><a href="{:U('Index/product')}" title="">产品介绍</a></li>
-        <li class=""><a href="{:U('Index/kf')}" title="">定制开发</a></li>
-        <li class=""><a href="{:U('Index/about')}" title="">关于我们</a></li>
+        <li class=""><a href="{:U('Index/index')}" title="" class="transf">首页</a></li>
+        <li class="active"><a href="{:U('Index/product')}" title="" class="transf">产品介绍</a></li>
+        <li class=""><a href="{:U('Index/kf')}" title="" class="transf">定制开发</a></li>
+        <li class=""><a href="{:U('Index/about')}" title="" class="transf">关于我们</a></li>
         <li class="">{$sys.tel}</li>
         <li class="" style="">
-            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;" data-toggle="modal" data-target="#myModal" class="btn">免费试用</a>
+            <a style="background: linear-gradient(-90deg,#36e4ff,#5bbdff);display: inline-block;border-radius: 16px;" data-toggle="modal" data-target="#myModal" class="btn total_btn_a_free">免费试用</a>
         </li>
     </ul>
 
 </div>
 <!--header-->
 <div class="gailan-first text-white" style="background-image: url(__ROOT__{$top_pic.picurl});height: 200px;">
-
+        <h1 class="" style="text-align: center;line-height: 50px;padding: 30px;">{$top_pic.pic_title}</h1>
 </div>
-<h1 class="" style="text-align: center;line-height: 50px;padding: 30px;">{$top_pic.pic_title}</h1>
+
 
 <!-- 产品介绍 -->
 <style>
     .product-content h2{
         padding-top: 30px;
+        color: #fff;
     }
     .product-content .product-list-div{
         box-shadow:rgba(140, 140, 140, 0.4) 0px 0px 6px 0px;
-        border-radius:5px;
+        border-radius:16px;
         text-align: center;
         margin: 50px 80px;
+    }
+    .product-content .product-color1{
+        background-color: #69b3bc;
+    }
+    .product-content .product-color2{
+        background-color: #4184b1;
+    }
+    .product-content .product-color3{
+        background-color: #688ebb;
+    }
+    .product-content .product-color4{
+        background-color: #686bbc;
     }
     .product-content .product-list{
         /*border:1px solid red;*/
@@ -108,13 +124,23 @@
         text-decoration:none;
         padding:30px 70px;
         height: 400px;
+        color: #fff;
     }
 </style>
 <div class="product-content container">
     <div class="row">
-        <foreach name="introduct_pic" item="vip">
+        <foreach name="introduct_pic" item="vip" key="kip">
             <div class="col-xs-6 col-md-6 product-list" style="">
-                <div class="product-list-div">
+                <if condition="$kip % 4 eq 0">
+                    <div class="product-list-div product-color1">
+                <elseif condition="$kip % 4 eq 1"/>
+                    <div class="product-list-div product-color2">
+                <elseif condition="$kip % 4 eq 2"/>
+                    <div class="product-list-div product-color3">
+                <elseif condition="$kip % 4 eq 3"/>
+                    <div class="product-list-div product-color4">
+                </if>
+                
                     <h2>{$vip.pic_title}</h2>
                     <div class="product-list-content">
                         {$vip.pic_content}
