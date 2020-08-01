@@ -103,7 +103,7 @@
         background: rgb(242, 242, 242);
     }
     .about.a-active h2{
-        text-align: left;
+        text-align: center;
         width: 95%;
         margin:0 auto;
     }
@@ -127,10 +127,7 @@
     }
 </style>
 <foreach name="service_data" item="vsd" key="ksd">
-    <if condition="$ksd % 2 eq 0">
-        
-    
-
+    <if condition="$vsd['position'] eq 1">
     <div style="background: url(__ROOT__{$vsd.picurl_small}) no-repeat; background-size: cover;" class="pic_back">
         <div style="background-color: rgba(0,0,0,0.5);">
             <h2>{$vsd.pic_title}</h2>

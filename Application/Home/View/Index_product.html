@@ -86,7 +86,11 @@
 
 <!-- 产品介绍 -->
 <style>
-    .product-content h2{
+    .product-content{
+        width: 90%;
+        margin:40px auto;
+    }
+    .product-content h3{
         padding-top: 30px;
         color: #fff;
     }
@@ -94,7 +98,7 @@
         box-shadow:rgba(140, 140, 140, 0.4) 0px 0px 6px 0px;
         border-radius:16px;
         text-align: center;
-        margin: 50px 80px;
+        /*margin: 50px 80px;*/
     }
     .product-content .product-color1{
         background-color: #69b3bc;
@@ -116,7 +120,7 @@
     .product-content .product-list-content{
         /*margin-top: 80px;*/
         font-weight:400;
-        font-size:18px;
+        font-size:16px;
         color:rgb(174, 174, 174);
         font-style:normal;
         letter-spacing:0px;
@@ -125,12 +129,14 @@
         padding:30px 70px;
         height: 400px;
         color: #fff;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
     }
 </style>
-<div class="product-content container">
+<div class="product-content">
     <div class="row">
         <foreach name="introduct_pic" item="vip" key="kip">
-            <div class="col-xs-6 col-md-6 product-list" style="">
+            <div class="col-xs-3 col-md-3 product-list" style="">
                 <if condition="$kip % 4 eq 0">
                     <div class="product-list-div product-color1">
                 <elseif condition="$kip % 4 eq 1"/>
@@ -141,7 +147,7 @@
                     <div class="product-list-div product-color4">
                 </if>
                 
-                    <h2>{$vip.pic_title}</h2>
+                    <h3>{$vip.pic_title}</h3>
                     <div class="product-list-content">
                         {$vip.pic_content}
                     </div>
