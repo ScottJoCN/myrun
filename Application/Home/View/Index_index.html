@@ -131,7 +131,7 @@
         margin-top: 60px;
     }
     #mid-left .mid-left-l{
-        width: 40%;float: left;padding-top: 40px;
+        width: 50%;float: left;padding-top: 40px;
     }
     #mid-left .mid-title,#mid-right .mid-title{
         font-size: 30px;margin:15px 0;font-weight:400;line-height:41px;
@@ -141,7 +141,7 @@
         font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15% 0;
     }
     #mid-left .mid-left-r{
-        width: 60%;float: left;padding: 40px;
+        width: 50%;float: left;padding: 40px;
         /*border:1px solid red;*/
     }
     .mid-btn{
@@ -153,7 +153,7 @@
         color: rgb(56, 148, 255); border-radius: 10px; font-size: 14px; padding: 0px; text-align: center; line-height: 50px; font-weight: normal; font-style: normal; opacity: 1;
     }
     #mid-right .mid-right-l{
-        width: 40%;float: right;padding: 40px;
+        width: 50%;float: right;padding: 40px;
     }
     #mid-right .mid-right-l .mid-title{
         text-align: right;
@@ -169,7 +169,7 @@
         font-size: 16px;line-height: 30px;color:rgb(174, 174, 174);margin-left: 15%;
     }
     #mid-right .mid-right-r{
-        width: 60%;float: left;padding: 40px 80px 0 0;
+        width: 50%;float: left;padding: 40px 80px 0 0;
         /*border:1px solid red;*/
     }
 </style>
@@ -235,8 +235,8 @@
         padding-bottom: 30px;
     }
     #use_us .use_title{
-        font-size: 28px;
-        font-weight: 500;
+        font-size: 30px;
+        /*font-weight: 500;*/
         text-align: center;
         /*height: 50px;*/
         line-height: 50px;
@@ -311,7 +311,7 @@
     }
 </style>
 <div id="use_us">
-    <div class="use_title">这些行业都可以用我们</div>
+    <h2 class="use_title">这些行业都可以用我们</h2>
     <!-- 图片集 -->
     <div class="use_pics">
         <!-- 221 -->
@@ -328,15 +328,16 @@
             </div>
             <div style="clear: both;"></div>
         </foreach>
+        
         <if condition="count($industry['mod_data']) eq 1">
             <div class="use_pics_4">
-                <div class="pic1"><img src="__ROOT__{$vline[0]['picurl']}" alt=""></div>
+                <div class="pic1"><img src="__ROOT__{$industry['mod_data'][0]['picurl']}" alt=""></div>
             </div>
             <div style="clear: both;"></div>
         <elseif condition="count($industry['mod_data']) eq 2" />
             <div class="use_pics_3">
-                <div class="pic1"><img src="__ROOT__{$vline[0]['picurl']}" alt=""></div>
-                <div class="pic2"><img src="__ROOT__{$vline[1]['picurl']}" alt=""></div>
+                <div class="pic1"><img src="__ROOT__{$industry['mod_data'][0]['picurl']}" alt=""></div>
+                <div class="pic2"><img src="__ROOT__{$industry['mod_data'][1]['picurl']}" alt=""></div>
             </div>
             <div style="clear: both;"></div>
 
@@ -370,8 +371,9 @@
 
     }
     #div1 ul li img { width: 200px; height: 150px; display: inline-block;}
-    #people_use h3{font-size: 28px;
-        font-weight: 500;
+    #people_use h2{
+        font-size: 30px;
+        /*font-weight: 500;*/
         text-align: center;
         /*height: 50px;*/
         line-height: 50px;
@@ -402,7 +404,7 @@
         }
     </script>
 <div id="people_use">
-    <h3>他们都在使用我们</h3>
+    <h2>他们都在使用我们</h2>
     <div id="div1">
         <ul>
             <foreach name="they_use" item="vtu">

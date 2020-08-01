@@ -158,6 +158,7 @@ class IndexController extends BaseController {
         for($i=0;$i<$line;$i++){
             $line_data_temp[] = array_slice($line_data, $i*3 ,3);
         }
+
         $mod_data = array();
         if($mod){
             $mod_data = array_slice($intro_pic,$count - $mod,$mod);
