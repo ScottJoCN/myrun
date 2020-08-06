@@ -85,10 +85,11 @@
 
   <div class="form-group">
     <label class="col-sm-2 control-label">介绍内容</label>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
       <!-- <script id="editor" type="text/plain" style="width:100%;height:400px;"></script> -->
         <textarea class="form-control" name="pic_content"  id="contents" style="height: 200px;"></textarea>
     </div>
+    <label class="col-sm-2 control-label">字数：<span class="num">90</span></label>
   </div>
 
   <div class="form-group">
@@ -133,18 +134,23 @@
 <script src="__PUBLIC__/asource/js/date/WdatePicker.js"></script>
 <script src="__PUBLIC__/asource/js/chosen.jquery.js"></script>
 
-<script type="text/javascript">
-    var ue = UE.getEditor('editor',{
-      toolbars: [
-      ['fullscreen', 'source', 'undo', 'redo','|','preview','print','template','|','justifyleft','justifycenter','justifyright','justifyjustify','|','insertorderedlist','insertunorderedlist','|','superscript','subscript','fontborder','|','link', 'unlink','removeformat', 'formatmatch', 'blockquote', 'pasteplain', 'autotypeset'],
-      ['indent','paragraph','fontfamily', 'fontsize','|','forecolor','backcolor','bold','italic','underline','strikethrough','|','simpleupload', 'insertimage','emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map']
-    ],
-    autoHeightEnabled: false,
-    });
-    $('#art_sub').click(function(){
-      $('#contents').val(UE.getEditor('editor').getContent());
-    })
-    
+ <script type="text/javascript">
+    function statInputNum(textArea, numItem) {
+  var max = numItem.text(),
+  curLength;
+  textArea[0].setAttribute("maxlength", max);
+  curLength = textArea.val().length;
+  numItem.text(max - curLength);
+  textArea.on("input propertychange", function () {
+  numItem.text(max - $(this).val().length);
+  });
+  }
+  $(function () {
+  
+  var textArea = $("#contents"),
+  word = $(".num");
+  statInputNum(textArea, word);
+  });
 </script>
 </body>
 </html>

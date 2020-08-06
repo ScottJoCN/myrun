@@ -134,6 +134,8 @@ class CustomController extends BaseController {
     public function serviceadd(){
     	if(IS_POST){
     		$data = $this->pic->create();
+    		$data['pic_content'] = strip_tags(htmlspecialchars_decode($data['pic_content']));
+			$data['pic_content'] = mb_substr($data['pic_content'],0,30,'utf-8');
 			$upload = new \Think\Upload();//文件实例化上传
 			$upload->maxSize = 3145728;
 			$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
@@ -157,6 +159,8 @@ class CustomController extends BaseController {
     public function serviceedit(){
     	if(IS_POST){
 			$data = $this->pic->create();
+			$data['pic_content'] = strip_tags(htmlspecialchars_decode($data['pic_content']));
+			$data['pic_content'] = mb_substr($data['pic_content'],0,30,'utf-8');
 			$upload = new \Think\Upload();//文件实例化上传
 			$upload->maxSize = 3145728;
 			$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
