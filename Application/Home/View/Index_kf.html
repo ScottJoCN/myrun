@@ -198,40 +198,11 @@
                 <div class="glyphicon glyphicon-chevron-right" style="line-height: 300px;"></div>
             </if>
         </foreach>
-        <!-- <div class="service-list" style="">
-            <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
-            <div class="service-list-title">xxxxx</div>
-            <div class="service-list-content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-        </div>
-        <div class="service-list" style="">
-            <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
-            <div class="service-list-title">xxxxx</div>
-            <div class="service-list-content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-        </div>
-        <div class="service-list" style="">
-            <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
-            <div class="service-list-title">xxxxx</div>
-            <div class="service-list-content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-        </div>
-        <div class="service-list" style="">
-            <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
-            <div class="service-list-title">xxxxx</div>
-            <div class="service-list-content">xxx</div>
-        </div>
-        <div class="service-list" style="">
-            <div class="service-list-pic"><img src="__PUBLIC__/home/br/4.png" alt="" width="100%"></div>
-            <div class="service-list-title">xxxxx</div>
-            <div class="service-list-content">
-                xx<br/>
-                xx<br/>
-                xx<br/>
-            </div>
-        </div> -->
     </div>
 </div>
 
 
-<style>
+<!-- <style>
     /** { margin: 0; padding: 0;}*/
     /*body{ background-color:#1B1B1B}*/
     #div1{ width: 80%; height: 280px; position: relative; margin: 80px auto;overflow: hidden;}
@@ -296,7 +267,97 @@
 
         </ul>
     </div>
+</div> -->
+
+<style type="text/css">
+        .picCenter {
+            width: 80%;
+            margin: 15px auto;
+        }
+
+        .xinxiIcon {
+            margin:0 0 -20px auto;
+        }
+
+        .xinxiIcon img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .photo_img img {box-sizing: border-box;transition:all .7s ease 0s;
+         
+        }
+        .photo_img img:hover {box-sizing: border-box;border: 1px solid #023246;
+            box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+            -webkit-box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+            -moz-box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+        }
+
+        .photo_nr {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 15px auto;
+        }
+
+        .informationText {
+            width: 100%;
+            margin: 15px auto;
+            text-align: center;
+        }
+
+        .informationText span {
+
+            background: #ffffff;
+            color: #1C1F86;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .photo_nr{
+            margin:40px;
+        }
+        .photo_nr ul li {
+            float: left;
+            margin: 0 35px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .photo_nr p {
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .listRotation{
+            /*border: 1px solid #023246;*/
+        }
+    </style>
+    <div class="picCenter">
+<div class="listRotation">
+<div class="informationText" style="margin-bottom:80px;">
+<h2>客户案例</h2>
 </div>
+<div class="photo_nr">
+<ul id="picList1" style="width: 100%;overflow: hidden;">
+    <foreach name="case_data" item="vcd">
+        <li>
+        <div class="photo_img"><img src="__ROOT__{$vcd.picurl}" alt="" style="border-radius: 16px;width: 200px; height: 150px;" /></div>
+        <p style="font-size:24px;">{$vcd.pic_title}</p>
+        <p style="">{$vcd.pic_content}</p>
+        </li>
+    </foreach>
+
+<div style="clear: both;"></div>
+</ul>
+</div>
+</div>
+</div>
+
 <style>
     .more_footer{
         height: 300px; left: 0px; top: 0px; z-index: 6; background-color: rgb(0, 0, 0); border: none; font-size: 14px; padding: 0px; text-align: center; line-height: 20px; font-weight: normal; font-style: normal; opacity: 0.75;
@@ -343,7 +404,22 @@
 <script src="__PUBLIC__/home/br/jQuery.CustomAnimation.js"></script>
 
 <script src="__PUBLIC__/home/br/yxt.common.js"></script>
-
+<script src="__PUBLIC__/home/br/ScrollPic.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        var cc1 = new ScrollPic();
+        cc1.scrollContId = "picList1"; // 内容容器ID,picList1加到容器上，
+        cc1.arrLeftId = "LeftArr";//左箭头ID
+        cc1.arrRightId = "RightArr"; //右箭头ID
+        cc1.frameWidth = 1200; //显示框的宽度
+        cc1.pageWidth = 1; //翻页宽度
+        cc1.speed = 10; //移动速度(单位毫秒，越小越快)
+        cc1.space = 10; //每次移动像素(单位px，越大越快)
+        cc1.autoPlay = true; //自动播放
+        cc1.autoPlayTime = 0.03; //自动播放间隔时间(秒)
+        cc1.initialize(); //初始化
+    });
+</script>
 
 </body>
 </html>
