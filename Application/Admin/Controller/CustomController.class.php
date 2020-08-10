@@ -53,7 +53,7 @@ class CustomController extends BaseController {
     public function introadd(){
     	if(IS_POST){
     		$data = $this->pic->create();
-			
+            $data['pic_content'] = mb_substr($data['pic_content'],0,10,'utf-8');
 
 			$upload = new \Think\Upload();//文件实例化上传
 			$upload->maxSize = 3145728;
@@ -84,6 +84,7 @@ class CustomController extends BaseController {
     public function introedit(){
     	if(IS_POST){
 			$data = $this->pic->create();
+            $data['pic_content'] = mb_substr($data['pic_content'],0,10,'utf-8');
 			$upload = new \Think\Upload();//文件实例化上传
 			$upload->maxSize = 3145728;
 			$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    

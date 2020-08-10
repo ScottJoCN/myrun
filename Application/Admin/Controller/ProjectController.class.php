@@ -53,7 +53,7 @@ class ProjectController extends BaseController {
     public function proadd(){
     	if(IS_POST){
     		$data = $this->pic->create();
-			
+            $data['pic_content'] = mb_substr($data['pic_content'],0,90,'utf-8');
 			$insertid = $this->pic->add($data);
 			if($insertid){
 				$this->success("添加成功",U('project/prolist',array('list'=>2,'cla'=>2)));
@@ -67,6 +67,7 @@ class ProjectController extends BaseController {
     public function proedit(){
     	if(IS_POST){
 			$data = $this->pic->create();
+            $data['pic_content'] = mb_substr($data['pic_content'],0,90,'utf-8');
 			$saveid = $this->pic->save($data);
 			if($saveid){
 				$this->success("编辑成功",U('project/prolist',array('list'=>2,'cla'=>2)));

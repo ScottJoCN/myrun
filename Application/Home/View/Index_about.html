@@ -128,7 +128,7 @@
 </style>
 <foreach name="service_data" item="vsd" key="ksd">
     <if condition="$vsd['position'] eq 1">
-    <div style="background: url(__ROOT__{$vsd.picurl_small}) no-repeat; background-size: cover;" class="pic_back">
+    <div style="background: url(__ROOT__{$vsd.picurl}) no-repeat; background-size: cover;" class="pic_back">
         <div style="background-color: rgba(0,0,0,0.5);">
             <h2>{$vsd.pic_title}</h2>
             <div class="pic_back_content">{$vsd.pic_content}</div>
