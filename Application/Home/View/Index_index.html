@@ -359,80 +359,123 @@
 
 <!-- 他们都在使用我们 -->
 
-<style>
-    /** { margin: 0; padding: 0;}*/
-    /*body{ background-color:#1B1B1B}*/
-    #div1{ width: 80%; height: 350px; position: relative; margin: 80px auto;overflow: hidden;}
-    #div1 ul { width: 800px; height: 350px; position: relative; }
-    #div1 ul li { height: 350px; float: left; list-style: none; padding-right:80px;}
-    #div1 ul li div{
-        text-align: center;
-        margin-bottom: 20px;
+<style type="text/css">
+        .picCenter {
+            width: 80%;
+            margin: 15px auto;
+        }
 
-    }
-    #div1 ul li img { width: 200px; height: 150px; display: inline-block;}
-    #people_use h2{
-        font-size: 30px;
+        .xinxiIcon {
+            margin:0 0 -20px auto;
+        }
+
+        .xinxiIcon img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .photo_img{
+            margin-bottom:20px;
+        }
+        
+        .photo_img img {box-sizing: border-box;border: 1px solid #fff;transition:all .7s ease 0s;
+         
+        }
+        .photo_img img:hover {box-sizing: border-box;border: 1px solid #023246;
+          box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+-webkit-box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+-moz-box-shadow: 1px 0px 15px -3px rgba(0,0,0,0.53);
+        }
+
+        .photo_nr {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 15px auto;
+        }
+
+        .informationText {
+            width: 888px;
+            margin: 15px auto;
+            text-align: center;
+        }
+
+        .informationText span {
+
+            background: #ffffff;
+            color: #1C1F86;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .photo_nr ul li {
+            float: left;
+            margin: 0 35px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .photo_nr p {
+            padding: 0;
+            margin: 0;
+        }
+
+
+        #LeftArr {
+            background: url(img/e_left.png) no-repeat;
+            width: 40px;
+            height: 40px;
+            margin-left: -15px;
+            text-decoration: none;
+            color: #323232;
+        }
+
+        #RightArr {
+            /*border:1px solid red;*/
+            background: url(img/e_right.png) no-repeat;
+            width: 40px;
+            height: 40px;
+            margin-right: -25px;
+            text-decoration: none;
+            color: #323232;
+        }
+        .listRotation{
+            /*border: 1px solid #023246;*/
+        }
+    </style>
+<div class="picCenter">
+<div class="listRotation">
+<div class="informationText">
+    <h2 style="font-size: 30px;
         /*font-weight: 500;*/
         text-align: center;
         /*height: 50px;*/
         line-height: 50px;
-        padding: 30px;}
-    /*a{ color: #B4B4B4; }*/
-</style>
-<script type="text/javascript">
-        window.onload=function(){
-            var odiv = document.getElementById('div1');
-            var oul = odiv.getElementsByTagName('ul')[0];
-            var ali = oul.getElementsByTagName('li');
-            var spa = -2;               
-            oul.innerHTML=oul.innerHTML+oul.innerHTML;
-            oul.style.width=ali[0].offsetWidth*ali.length+'px';
-            function move(){
-                if(oul.offsetLeft<-oul.offsetWidth/2){
-                    oul.style.left='0';
-                }
-                if(oul.offsetLeft>0){
-                    oul.style.left=-oul.offsetWidth/2+'px'
-                }
-                oul.style.left=oul.offsetLeft+spa+'px';
-            }
-            var timer = setInterval(move,90)
-            
-            odiv.onmousemove=function(){clearInterval(timer);}
-            odiv.onmouseout=function(){timer = setInterval(move,30)};
-        }
-    </script>
-<div id="people_use">
-    <h2>他们都在使用我们</h2>
-    <div id="div1">
-        <ul>
-            <foreach name="they_use" item="vtu">
-                <li>
-                    <div><img src="__ROOT__{$vtu[0]['picurl']}" /></div>
-                    <div><img src="__ROOT__{$vtu[1]['picurl']}" /></div>
-                </li>
-            </foreach>
-            <!-- <li>
-                <div><img src="__PUBLIC__/home/test/1.png" /></div>
-                <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li>
-            <li>
-                <div><img src="__PUBLIC__/home/test/1.png" /></div>
-                <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li>
-            <li>
-                <div><img src="__PUBLIC__/home/test/1.png" /></div>
-                <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li>
-            <li>
-                <div><img src="__PUBLIC__/home/test/1.png" /></div>
-                <div><img src="__PUBLIC__/home/test/2.png" /></div>
-            </li> -->
-        </ul>
-    </div>
+        padding: 30px;">他们都在使用我们</h2>
 </div>
+<div class="photo_nr">
 
+<a href="javascript:;" id="LeftArr">
+    <i class="glyphicon glyphicon-chevron-left"></i>
+</a>
+<ul id="picList1" style="width: 888px;overflow: hidden;">
+    <foreach name="they_use" item="vtu">
+        <li>
+            <div class="photo_img"><img src="__ROOT__{$vtu[0]['picurl']}" style="border-radius: 16px;width: 200px; height: 150px;"/></div>
+            <div class="photo_img"><img src="__ROOT__{$vtu[1]['picurl']}" style="border-radius: 16px;width: 200px; height: 150px;"/></div>
+        </li>
+    </foreach>
+
+<div style="clear: both;"></div>
+</ul>
+<a href="javascript:;" id="RightArr"><i class="glyphicon glyphicon-chevron-right" style="padding-left: 20px;"></i></a>
+</div>
+</div>
+</div>
 <include file="Index/footer"/>
 <include file="Index/modal"/>
 
@@ -443,7 +486,22 @@
 <script src="__PUBLIC__/home/br/yxt.common.js"></script>
 
     
-
+<script src="__PUBLIC__/home/br/ScrollPic.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        var cc1 = new ScrollPic();
+        cc1.scrollContId = "picList1"; // 内容容器ID,picList1加到容器上，
+        cc1.arrLeftId = "LeftArr";//左箭头ID
+        cc1.arrRightId = "RightArr"; //右箭头ID
+        cc1.frameWidth = 1200; //显示框的宽度
+        cc1.pageWidth = 1; //翻页宽度
+        cc1.speed = 10; //移动速度(单位毫秒，越小越快)
+        cc1.space = 10; //每次移动像素(单位px，越大越快)
+        cc1.autoPlay = true; //自动播放
+        cc1.autoPlayTime = 0.05; //自动播放间隔时间(秒)
+        cc1.initialize(); //初始化
+    });
+</script>
 
 
 
