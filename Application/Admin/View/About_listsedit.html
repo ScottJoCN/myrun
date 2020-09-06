@@ -86,8 +86,18 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">关于我们内容</label>
     <div class="col-sm-10">
-      <!-- <script id="editor" type="text/plain" style="width:100%;height:400px;"></script> -->
-        <textarea class="form-control" name="pic_content"  id="contents" style="height: 200px;">{$pro.pic_content}</textarea>
+      <script charset="utf-8" src="__ROOT__/editor/kindeditor-min.js"></script>
+        <script>
+            var editor;
+            KindEditor.ready(function(K) {
+                editor = K.create('textarea[name="pic_content"]',{
+                allowFileManager : true
+                });
+            })
+        </script>
+     <textarea class="form-control" name="pic_content" rows="15" style="visibility:hidden;">{$pro.pic_content}</textarea>
+      <!-- <script id="editor" type="text/plain" style="width:100%;height:400px;">{$pro.pic_content}</script> -->
+        <!-- <textarea class="form-control" name="pic_content"  id="contents" style="height: 200px;"></textarea> -->
     </div>
   </div>
   <div class="form-group">
